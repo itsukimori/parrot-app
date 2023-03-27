@@ -1,0 +1,70 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+class FootSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        // public/test-image 画像一括挿入
+        $folderPath= public_path('/test-image/foot/easy/*');
+        $imageFullPath = glob($folderPath); // ←/var/www/html/public/test-image/hoge.png
+        $imagesPath = str_replace('/var/www/html/public/test-image', '/test-image', $imageFullPath);
+        foreach ($imagesPath as $imagePath) {
+            DB::table('images')->insert([
+                'body_parts' => 'foot',
+                'level' => 'easy',
+                'image_path' => $imagePath,
+            ]);
+        }
+    }
+}
+
+class FootNormalSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        // public/test-image 画像一括挿入
+        $folderPath= public_path('/test-image/foot/normal/*');
+        $imageFullPath = glob($folderPath); // ←/var/www/html/public/test-image/hoge.png
+        $imagesPath = str_replace('/var/www/html/public/test-image', '/test-image', $imageFullPath);
+        foreach ($imagesPath as $imagePath) {
+            DB::table('images')->insert([
+                'body_parts' => 'foot',
+                'level' => 'normal',
+                'image_path' => $imagePath,
+            ]);
+        }
+    }
+}
+
+class FootHardSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        // public/test-image 画像一括挿入
+        $folderPath= public_path('/test-image/foot/hard/*');
+        $imageFullPath = glob($folderPath); // ←/var/www/html/public/test-image/hoge.png
+        $imagesPath = str_replace('/var/www/html/public/test-image', '/test-image', $imageFullPath);
+        foreach ($imagesPath as $imagePath) {
+            DB::table('images')->insert([
+                'body_parts' => 'foot',
+                'level' => 'hard',
+                'image_path' => $imagePath,
+            ]);
+        }
+    }
+}

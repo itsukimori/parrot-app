@@ -1,0 +1,26 @@
+/* Header */
+.header {
+    color: azure;
+    font-size: 45px;
+    background-color: black;
+}
+.header-title {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Toppage */
+.toppage-width {
+    width: 100%;
+}
+.toppage-backImage {
+    background-image: url(../toppage_image/toppage_image00.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 670px;
+}
+.toppage-drawingContent-button {
+    padding-top: 550px;
+    padding-left: 75px;
+}

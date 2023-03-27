@@ -1,7 +1,8 @@
 <template>
-    <div class="container">
-        <div class="drawingContent-margin-top" v-if="selectOption">
-            <h1 class="text-primary d-flex justify-content-center">Drawing</h1>
+<div class="drawingContent-color">
+    <div class="container text-center">
+        <div class="drawingContent-margin" v-if="selectOption">
+            <h1 class="d-flex justify-content-center">Drawing</h1>
             <div class="d-flex justify-content-center">
                 <label for="">難易度:
                     <select v-model="selectedLevel" name="level" id="" class="form-select">
@@ -33,20 +34,21 @@
                         <option value="120000">120</option>
                     </select>
                 </label>
-                <button v-on:click="startAction" type="button" class="btn btn-primary btn-lg">START</button>
             </div>
+            <button v-on:click="startAction" type="button" class="btn btn-outline-light drawingContent-startButton">START</button>
         </div>
         <div v-if="showImage">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center drawingContent-margin">
                 <img :src="imageSrc" alt="" >
             </div>
         </div>
-        <div v-if="finishContent">
-            <h1>終わりましたよ</h1>
-            <button>リスタート</button>
-            <button>違う設定でやり直す</button>
+        <div v-if="finishContent" class="drawingContent-margin">
+            <h1>お疲れ様！！</h1>
+            <button @click="redirectToDrawing" class="btn btn-outline-light">もう一度ドローイング</button>
+            <button @click="redirectToIndex" class="btn btn-outline-light">トップページへ戻る</button>
         </div>
     </div>
+</div>
 </template>
 
 <script>
@@ -139,6 +141,12 @@ export default {
                 }
             }, this.selectedTime);
         },
+        redirectToIndex() {
+            window.location.href = '/';
+        },
+        redirectToDrawing() {
+            window.location.href = '/drawing';
+        }
     },
     mounted(){
     },

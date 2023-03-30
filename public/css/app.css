@@ -19,7 +19,7 @@
     padding-top: 130px;
 }
 .toppage-backImage {
-    background-image: url(../toppage_image/toppage_image00.jpg);
+    background-image: url(/images/toppage_image00.jpg?d2d64d2375ce9992fa0a1c83ac84b846);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

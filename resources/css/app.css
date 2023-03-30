@@ -1,0 +1,49 @@
+/* Header */
+.header {
+    color: azure;
+    font-size: 45px;
+    background-color: black;
+}
+.header-title {
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* Toppage */
+.toppage-width {
+    width: 100%;
+}
+.toppage-title {
+    color: azure;
+    font-size: 100px;
+    padding-top: 130px;
+}
+.toppage-backImage {
+    background-image: url(../../public/toppage_image/toppage_image00.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 670px;
+}
+.toppage-drawingContent-button {
+    padding-top: 150px;
+    padding-left: 75px;
+}
+
+/* Drawing Content */
+.drawingContent-color {
+    color: azure;
+    background-color: black;
+    height: 100vh;
+}
+.drawingContent-margin {
+    padding-top: 200px;
+}
+.drawingContent-startButton {
+    margin-top: 10px;
+}
+
+/* <a> white-text */
+.custom-link {
+    color: azure;
+}

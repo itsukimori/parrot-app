@@ -13,17 +13,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            HandSeeder::class,
-            HandNormalSeeder::class,
-            HandHardSeeder::class,
-
-            FaceSeeder::class,
-            FaceNormalSeeder::class,
-            FaceHardSeeder::class,
-
-            FootSeeder::class,
-            FootNormalSeeder::class,
-            FootHardSeeder::class,
+            ImagesHandSeeder::class,
+            ImagesFaceSeeder::class,
+            ImagesFootSeeder::class,
         ]);
     }
 }

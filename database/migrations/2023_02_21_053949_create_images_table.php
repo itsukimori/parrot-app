@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('body_parts');
-            $table->string('level');
             $table->string('image_path');
             $table->timestamps();
         });

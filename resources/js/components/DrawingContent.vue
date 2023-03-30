@@ -4,13 +4,6 @@
         <div class="drawingContent-margin" v-if="selectOption">
             <h1 class="d-flex justify-content-center">Drawing</h1>
             <div class="d-flex justify-content-center">
-                <label for="">難易度:
-                    <select v-model="selectedLevel" name="level" id="" class="form-select">
-                        <option value="easy">easy</option>
-                        <option value="normal">normal</option>
-                        <option value="hard">hard</option>
-                    </select>
-                </label>
                 <label for="">部位:
                     <select v-model="selectedParts" name="" id="" class="form-select">
                         <option value="hand">手</option>
@@ -72,42 +65,18 @@ export default {
         startAction: function(){
             this.selectOption = !this.selectOption;
 
-            if(this.selectedParts == 'hand' && this.selectedLevel == 'easy'){ //hand: easy
+            if(this.selectedParts == 'hand'){ //hand
                 var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "hand" && elem.level == "easy";
+                    return elem.body_parts == "hand";
                 });
-            } else if (this.selectedParts == 'hand' && this.selectedLevel == 'normal'){ //hand: normal
+            } else if(this.selectedParts == 'face'){ //face
                 var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "hand" && elem.level == "normal";
+                    return elem.body_parts == "face";
                 });
-            } else if (this.selectedParts == 'hand' && this.selectedLevel == 'hard'){ //hand: hard
+            } else if(this.selectedParts == 'foot'){ //face
                 var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "hand" && elem.level == "hard";
+                    return elem.body_parts == "foot";
                 });
-            } else if (this.selectedParts == 'face' && this.selectedLevel == 'easy'){ //face: easy
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "face" && elem.level == "easy";
-                });
-            } else if (this.selectedParts == 'face' && this.selectedLevel == 'normal'){ //face: normal
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "face" && elem.level == "normal";
-                });
-            } else if (this.selectedParts == 'face' && this.selectedLevel == 'hard'){ //face: hard
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "face" && elem.level == "hard";
-                });
-            } else if (this.selectedParts == 'foot' && this.selectedLevel == 'easy'){ //foot: easy
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "foot" && elem.level == "easy";
-                });
-            } else if (this.selectedParts == 'foot' && this.selectedLevel == 'normal'){ //foot: normal
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "foot" && elem.level == "normal";
-                });
-            } else if (this.selectedParts == 'foot' && this.selectedLevel == 'hard'){ //foot: hard
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "foot" && elem.level == "hard";
-                })
             }
             //パスのみを配列化
             var imagePath = imagePathObj.map((path)=>{

@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">部位: {{ optionBodyparts }}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">{{ optionBodypartsText }}</p>
                             <select v-model="selectedParts" name="" id="" class="form-select w-100" @change="onOptionBodyparts">
                                 <option value="hand">手</option>
                                 <option value="face">顔</option>
@@ -20,7 +20,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">枚数: {{ optionSheets }}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">{{ optionSheetsText }}</p>
                             <select v-model="selectedSheets" name="" id="" class="form-select w-100" @change="onOptionSheets">
                                 <option value="6">5</option>
                                 <option value="11">10</option>
@@ -34,7 +34,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">時間: {{ optionTime }}</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">{{ optionTimeText }}</p>
                             <select v-model="selectedTime" name="" id="" class="form-select w-100" @change="onOptionTime">
                                 <option value="1000">1</option>
                                 <option value="5000">5</option>
@@ -81,8 +81,11 @@ export default {
             showImage: false,
             finishContent: false,
             optionBodyparts: '',
+            optionBodypartsText: '選択してください',
             optionSheets: '',
+            optionSheetsText: '選択してください',
             optionTime: '',
+            optionTimeText: '選択してください'
         }
     },
     methods: {
@@ -144,6 +147,7 @@ export default {
             switch(event.target.value) {
                 case 'hand':
                     this.optionBodyparts = '手';
+                    this.optionBodypartsText = '手の形は複雑で描くのが難しいですが、継続的な練習で成長できます。'
                     break;
                 case 'face':
                     this.optionBodyparts = '顔';
@@ -156,10 +160,12 @@ export default {
         onOptionSheets(event) {
             var elem = event.target.value -1;
             this.optionSheets = elem;
+            this.optionSheetsText = elem + '枚の画像が指定秒数ごとに切り替わります。'
         },
         onOptionTime(event) {
             var elem = event.target.value / 1000 + '(秒)';
             this.optionTime = elem;
+            this.optionTimeText = elem + '秒ごとに画像が切り替わります。'
         }
     },
     mounted(){

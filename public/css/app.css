@@ -42,7 +42,30 @@
 .drawingContent-startButton {
     margin-top: 10px;
 }
+.my-image {
+    margin-top: 50px;
+    max-width: 60%;
+    max-height: 60%;
+    height: auto;
+    width: auto;
+}
+.drawingContent-finishButton {
+    margin-top: 20px;
+}
+  
 
+/* スマホ対応 */
+.img-responsive-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-responsive-container img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: contain;
+       object-fit: contain;
+}
 /* <a> white-text */
 .custom-link {
     color: azure;

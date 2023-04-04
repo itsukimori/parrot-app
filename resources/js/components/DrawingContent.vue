@@ -1,47 +1,68 @@
 <template>
-<div class="drawingContent-color">
     <div class="container text-center">
         <div class="drawingContent-margin" v-if="selectOption">
-            <h1 class="d-flex justify-content-center">Drawing</h1>
-            <div class="d-flex justify-content-center">
-                <label for="">部位:
-                    <select v-model="selectedParts" name="" id="" class="form-select">
-                        <option value="hand">手</option>
-                        <option value="face">顔</option>
-                        <option value="foot">足</option>
-                    </select>
-                </label>
-                <lavel for="">枚数:
-                    <select v-model="selectedSheets" name="sheets" id="" class="form-select">
-                        <option value="6">5</option>
-                        <option value="10">10</option>
-                        <option value="20">20</option>
-                        <option value="30">30</option>
-                    </select>
-                </lavel>
-                <label for="">時間:
-                    <select v-model="selectedTime" name="time" id="" class="form-select">
-                        <option value="1000">1</option>
-                        <option value="5000">5</option>
-                        <option value="10000">10</option>
-                        <option value="120000">120</option>
-                    </select>
-                </label>
+            <h1 class="">Drawing</h1>
+            <div class="row">
+                <div class="col-12 col-md-4 my-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">部位: {{ optionBodyparts }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <select v-model="selectedParts" name="" id="" class="form-select w-100" @change="onOptionBodyparts">
+                                <option value="hand">手</option>
+                                <option value="face">顔</option>
+                                <option value="foot">足</option>
+                            </select>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-12 col-md-4 my-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">枚数: {{ optionSheets }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <select v-model="selectedSheets" name="" id="" class="form-select w-100" @change="onOptionSheets">
+                                <option value="6">5</option>
+                                <option value="11">10</option>
+                                <option value="21">20</option>
+                                <option value="31">30</option>
+                            </select>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-12 col-md-4 my-2">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">時間: {{ optionTime }}</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <select v-model="selectedTime" name="" id="" class="form-select w-100" @change="onOptionTime">
+                                <option value="1000">1</option>
+                                <option value="5000">5</option>
+                                <option value="10000">10</option>
+                                <option value="120000">120</option>
+                            </select>
+                        </div>
+                    </div>    
+                </div>
             </div>
-            <button v-on:click="startAction" type="button" class="btn btn-outline-light drawingContent-startButton">START</button>
+            <button v-on:click="startAction" type="button" class="btn btn-outline-dark drawingContent-startButton">START</button>
         </div>
         <div v-if="showImage">
-            <div class="d-flex justify-content-center drawingContent-margin">
-                <img :src="imageSrc" alt="" >
+            <div class="d-flex justify-content-center">
+                <div class="img-responsive-container">
+                    <img :src="imageSrc" alt="" class="img-fluid img-fluid my-image">
+                </div>
             </div>
         </div>
         <div v-if="finishContent" class="drawingContent-margin">
-            <h1>お疲れ様！！</h1>
-            <button @click="redirectToDrawing" class="btn btn-outline-light">もう一度ドローイング</button>
-            <button @click="redirectToIndex" class="btn btn-outline-light">トップページへ戻る</button>
+            <h1>終了しました。</h1>
+            <div class="drawingContent-finishButton">
+                <button @click="redirectToDrawing" class="btn btn-outline-dark">もう一度ドローイング</button>
+                <button @click="redirectToIndex" class="btn btn-outline-dark">トップページへ戻る</button>
+            </div>
         </div>
     </div>
-</div>
+    
 </template>
 
 <script>
@@ -58,7 +79,10 @@ export default {
             stopButton: false,
             selectOption: true,
             showImage: false,
-            finishContent: false
+            finishContent: false,
+            optionBodyparts: '',
+            optionSheets: '',
+            optionTime: '',
         }
     },
     methods: {
@@ -115,6 +139,27 @@ export default {
         },
         redirectToDrawing() {
             window.location.href = '/drawing';
+        },
+        onOptionBodyparts(event) {
+            switch(event.target.value) {
+                case 'hand':
+                    this.optionBodyparts = '手';
+                    break;
+                case 'face':
+                    this.optionBodyparts = '顔';
+                    break;
+                case 'foot':
+                    this.optionBodyparts = '足';
+                    break;
+            }
+        },
+        onOptionSheets(event) {
+            var elem = event.target.value -1;
+            this.optionSheets = elem;
+        },
+        onOptionTime(event) {
+            var elem = event.target.value / 1000 + '(秒)';
+            this.optionTime = elem;
         }
     },
     mounted(){

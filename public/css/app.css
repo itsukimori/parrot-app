@@ -52,6 +52,23 @@
 .drawingContent-finishButton {
     margin-top: 20px;
 }
+/* カード内のスタイル調整 */
+.card {
+    min-height: 200px; /* カードの高さを指定 */
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+.form-select {
+    margin-top: auto;
+}
+.card-text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
   
 
 /* スマホ対応 */

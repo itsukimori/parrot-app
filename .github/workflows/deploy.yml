@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy to server
 
 on:
   push:
@@ -13,12 +13,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up SSH
+    - name: Setup SSH
       uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
 
     - name: Deploy to server
       run: |
-        rsync -avz --delete --exclude='.git*' ./ ubuntu@221.118.181.76:/ver/www/parrot-app
-        ssh ubuntu@221.118.181.76:/ver/www/parrot-app 'sudo systemctl restart nginx'
+        ssh -o StrictHostKeyChecking=no ubuntu@221.118.181.76:/ver/www/parrot-app "cd /ver/www/parrot-app && git pull origin main"

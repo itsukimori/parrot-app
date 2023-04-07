@@ -18,6 +18,10 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SERVER_SSH_KEY }}
 
+    - name: Test HTTP connection
+      run: |
+        curl -I http://221.118.181.76
+
     - name: Ping test
       run: ping -c 3 221.118.181.76
 

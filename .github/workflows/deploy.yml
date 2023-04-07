@@ -20,4 +20,4 @@ jobs:
 
     - name: Deploy to server
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@221.118.181.76:/ver/www/parrot-app "cd /ver/www/parrot-app && git pull origin main"
+        ssh -o StrictHostKeyChecking=no ubuntu@221.118.181.76:/var/www/parrot-app "cd /var/www/parrot-app && git pull origin main"

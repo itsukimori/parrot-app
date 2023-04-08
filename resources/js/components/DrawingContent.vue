@@ -121,6 +121,7 @@ export default {
             }
             var shuffleImagePath = arrayShuffle(imagePath)
             var imageRep = shuffleImagePath.map(item => item.replace("/var/www/html/public", ""));
+            console.log(imageRep)
             
             //画像表示処理
             this.showImage = !this.showImage;
@@ -130,6 +131,7 @@ export default {
                 const image = imageRep[i]
                 this.imageSrc = ''
                 this.imageSrc += image
+                console.log(this.imageSrc)
                 i++
 
                 if(i >= this.selectedSheets){

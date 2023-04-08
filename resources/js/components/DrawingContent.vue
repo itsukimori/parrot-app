@@ -120,12 +120,14 @@ export default {
                 return array;
             }
             var shuffleImagePath = arrayShuffle(imagePath)
+            var imageRep = shuffleImagePath.map(item => item.replace("/var/www/html/public", ""));
+            
             //画像表示処理
             this.showImage = !this.showImage;
-            this.imageSrc += shuffleImagePath[0]
+            this.imageSrc += imageRep[0]
             var i = 1;
             var roops = setInterval(()=>{
-                const image = shuffleImagePath[i]
+                const image = imageRep[i]
                 this.imageSrc = ''
                 this.imageSrc += image
                 i++

@@ -17485,6 +17485,7 @@ __webpack_require__.r(__webpack_exports__);
       var imageRep = shuffleImagePath.map(function (item) {
         return item.replace("/var/www/html/public", "");
       });
+      console.log(imageRep);
 
       //画像表示処理
       this.showImage = !this.showImage;
@@ -17494,6 +17495,7 @@ __webpack_require__.r(__webpack_exports__);
         var image = imageRep[i];
         _this.imageSrc = '';
         _this.imageSrc += image;
+        console.log(_this.imageSrc);
         i++;
         if (i >= _this.selectedSheets) {
           clearInterval(roops);

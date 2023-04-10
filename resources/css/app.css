@@ -1,38 +1,163 @@
-/* Header */
+/* ---------Header------------- */
 .header {
     color: azure;
     font-size: 45px;
     background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
 }
 .header-title {
     margin-left: 20px;
     text-decoration: none;
 }
-
-/* Toppage */
+/* --------------------------------------- */
+/* -------------Toppage--------------- */
 .toppage-width {
     width: 100%;
 }
 .toppage-title {
+    font-family: 'Noto Serif JP', serif;
     color: azure;
+    /* font-size: 2rem; */
+    line-height: 1.2;
+    text-align: center;
     font-size: 100px;
-    padding-top: 130px;
+    padding-top: 190px;
+}
+/* トップページの文字グラデーション処理 */
+.gradient-text1 {
+    display: inline-block;/*これが無いとスマホで表示されない*/
+    margin: 0;
+    color: transparent;/*透明にして背景が見えるようにする*/
+    -webkit-text-fill-color: transparent;
+    background: url('../../public/toppage_image/text1.png'); /*背景の指定*/
+    -webkit-background-clip: text;/*テキストでマスク*/
+    background-clip: text;/*テキストでマスク*/
+    -webkit-animation: bgAnim 20s alternate infinite ease-in-out;
+            animation: bgAnim 20s alternate infinite ease-in-out;
+    font-size: 100px;
+    line-height: 1;
+}
+.gradient-text2 {
+    display: inline-block;/*これが無いとスマホで表示されない*/
+    margin: 0;
+    color: transparent;/*透明にして背景が見えるようにする*/
+    -webkit-text-fill-color: transparent;
+    background: url('../../public/toppage_image/text2.png'); /*背景の指定*/
+    -webkit-background-clip: text;/*テキストでマスク*/
+    background-clip: text;/*テキストでマスク*/
+    -webkit-animation: bgAnim 20s alternate infinite ease-in-out;
+            animation: bgAnim 20s alternate infinite ease-in-out;
+    font-size: 100px;
+    line-height: 1;
+}
+.gradient-text3 {
+    display: inline-block;/*これが無いとスマホで表示されない*/
+    margin: 0;
+    color: transparent;/*透明にして背景が見えるようにする*/
+    -webkit-text-fill-color: transparent;
+    background: url('../../public/toppage_image/text3.png'); /*背景の指定*/
+    -webkit-background-clip: text;/*テキストでマスク*/
+    background-clip: text;/*テキストでマスク*/
+    -webkit-animation: bgAnim 20s alternate infinite ease-in-out;
+            animation: bgAnim 20s alternate infinite ease-in-out;
+    font-size: 100px;
+    line-height: 1;
+}
+@-webkit-keyframes bgAnim {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes bgAnim {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }
 .toppage-backImage {
     background-image: url(../../public/toppage_image/toppage_image00.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 670px;
+    height: 870px;
+}
+.scroll-fade-in {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
 }
 .toppage-drawingContent-button {
-    padding-top: 150px;
-    padding-left: 75px;
+    position: fixed;
+    top: 575px;
+    left: 62px;
+    z-index: 999;
+}
+.toppage-drawingContent-button-img {
+    width: calc(240px * 1.25);
+    height: calc(109px * 1.25);
+}
+.row-centered {
+    justify-content: center;
 }
 
-/* Drawing Content */
+.row-centered {
+    justify-content: center;
+}
+
+.toppage-column {
+    padding-top: 40px;
+    color: #fff;
+    row-gap: 20px;
+}
+
+.toppage-heightLine-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border-right: 1px solid #fff;
+    padding: 0 10px;
+}
+
+.card-custom {
+    width: 300px;
+}
+.card-custom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-custom .btn-outline-light {
+    width: 100%;
+    height: 100%;
+} 
+
+.target {
+    color: #fff;
+}
+/* ----------------------------------------------------- */
+/* ---------------Drawing Content-------------------- */
 .drawingContent-color {
-    color: azure;
+    color: #fff;
     background-color: black;
     height: 100vh;
 }
@@ -82,6 +207,7 @@
     height: auto;
     object-fit: contain;
 }
+/* ------------------------------------------ */
 /* <a> white-text */
 .custom-link {
     color: azure;

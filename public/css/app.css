@@ -1,4 +1,4 @@
-/* ---------Header------------- */
+/* |---------Header-------------|*/
 .header {
     color: azure;
     font-size: 45px;
@@ -13,11 +13,12 @@
     margin-left: 20px;
     text-decoration: none;
 }
-/* --------------------------------------- */
-/* -------------Toppage--------------- */
+/* |---------------------------------------| */
+/*|-------------Toppage-----------------------------| */
 .toppage-width {
     width: 100%;
 }
+/* トップタイトル */
 .toppage-title {
     font-family: 'Noto Serif JP', serif;
     color: azure;
@@ -27,44 +28,43 @@
     font-size: 100px;
     padding-top: 190px;
 }
-/* トップページの文字グラデーション処理 */
+/* トップページタイトル文字のグラデーションアニメ処理 */
 .gradient-text1 {
-    display: inline-block;/*これが無いとスマホで表示されない*/
+    display: inline-block;
     margin: 0;
-    color: transparent;/*透明にして背景が見えるようにする*/
+    color: transparent;
     -webkit-text-fill-color: transparent;
-    background: url(/images/text1.png?5848fa99a574d6abef723d9b44f3d530); /*背景の指定*/
-    -webkit-background-clip: text;/*テキストでマスク*/
-    background-clip: text;/*テキストでマスク*/
+    background: url(/images/text1.png?5848fa99a574d6abef723d9b44f3d530); 
+    -webkit-background-clip: text;
+    background-clip: text;
     animation: bgAnim 20s alternate infinite ease-in-out;
     font-size: 100px;
     line-height: 1;
 }
 .gradient-text2 {
-    display: inline-block;/*これが無いとスマホで表示されない*/
+    display: inline-block;
     margin: 0;
-    color: transparent;/*透明にして背景が見えるようにする*/
+    color: transparent;
     -webkit-text-fill-color: transparent;
-    background: url(/images/text2.png?0f1e35b48e3d8b651375d45207746d9d); /*背景の指定*/
-    -webkit-background-clip: text;/*テキストでマスク*/
-    background-clip: text;/*テキストでマスク*/
+    background: url(/images/text2.png?0f1e35b48e3d8b651375d45207746d9d);
+    -webkit-background-clip: text;
+    background-clip: text;
     animation: bgAnim 20s alternate infinite ease-in-out;
     font-size: 100px;
     line-height: 1;
 }
 .gradient-text3 {
-    display: inline-block;/*これが無いとスマホで表示されない*/
+    display: inline-block;
     margin: 0;
-    color: transparent;/*透明にして背景が見えるようにする*/
+    color: transparent;
     -webkit-text-fill-color: transparent;
-    background: url(/images/text3.png?3887961917339391ca77b9d7eae70941); /*背景の指定*/
-    -webkit-background-clip: text;/*テキストでマスク*/
-    background-clip: text;/*テキストでマスク*/
+    background: url(/images/text3.png?3887961917339391ca77b9d7eae70941);
+    -webkit-background-clip: text;
+    background-clip: text;
     animation: bgAnim 20s alternate infinite ease-in-out;
     font-size: 100px;
     line-height: 1;
 }
-
 @keyframes bgAnim {
     0% {
         background-position: 0 0;
@@ -76,6 +76,7 @@
         background-position: 0 0;
     }
 }
+/* 背景画像 */
 .toppage-backImage {
     background-image: url(/images/toppage_image00.jpg?6545cf3c1f7edc39d26960c32353ba24);
     background-size: cover;
@@ -83,6 +84,7 @@
     background-repeat: no-repeat;
     height: 870px;
 }
+/* ドローイングコンテンツボタン */
 .scroll-fade-in {
     opacity: 0;
     pointer-events: none;
@@ -98,20 +100,15 @@
     width: calc(240px * 1.25);
     height: calc(109px * 1.25);
 }
+/* トップカラム */
 .row-centered {
     justify-content: center;
 }
-
-.row-centered {
-    justify-content: center;
-}
-
 .toppage-column {
     padding-top: 40px;
     color: #fff;
     row-gap: 20px;
 }
-
 .toppage-heightLine-parent {
     display: flex;
     justify-content: center;
@@ -120,7 +117,6 @@
     border-right: 1px solid #fff;
     padding: 0 10px;
 }
-
 .card-custom {
     width: 300px;
 }
@@ -140,8 +136,83 @@
 .target {
     color: #fff;
 }
-/* ----------------------------------------------------- */
-/* ---------------Drawing Content-------------------- */
+/* ｜-----------------------------------------------------｜ */
+/* |--------------Drawing lecture Page--------------------| */
+.lecturepage-background {
+    background-color: #fff;
+    margin-top: 125px;
+    height: 1050px;
+}
+.lecturepage-title {
+    padding-top: 70px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+.lecturepage-img{
+    width: 80%;
+    height: auto;
+}
+/* スクロールスパイとナビ */
+.lecturepage-navbar {
+    height: 400px;
+    position: relative;
+    overflow-y: scroll;
+    overflow: auto;
+    border: solid 1px gray;
+}
+.lecturepage-navtext-margin {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+/* 画像スライダー */
+.image-slider {
+    margin-top: 75px;
+    margin-bottom: -60px;
+}
+@keyframes infinity-scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+}
+@keyframes infinity-scroll-right {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+.image-slider__wrap {
+    display: flex;
+    overflow: hidden;
+}
+.image-slider__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.image-slider__list--left {
+    animation: infinity-scroll-left 47.5s infinite linear 0.5s both;
+}
+.image-slider__list--right {
+    animation: infinity-scroll-right 47.5s infinite linear 0.5s both;
+}
+.image-slider__item {
+    width: calc(100vw / 6);
+}
+.image-slider__item > img {
+    width: 100%;
+    height: 120px; /*画像高さ調整*/
+    -o-object-fit: cover;
+       object-fit: cover; /*アスペクト維持*/
+}
+
+/* |------------------------------------------------------| */
+/* ｜---------------Drawing Content--------------------｜ */
 .drawingContent-color {
     color: #fff;
     background-color: black;
@@ -163,7 +234,7 @@
 .drawingContent-finishButton {
     margin-top: 20px;
 }
-/* カード内のスタイル調整 */
+/* --カード内のスタイル調整-- */
 .card {
     min-height: 200px; /* カードの高さを指定 */
 }
@@ -180,9 +251,7 @@
     align-items: center;
     justify-content: center;
 }
-  
-
-/* スマホ対応 */
+/* --カードのスマホ対応-- */
 .img-responsive-container {
     width: 100%;
     overflow: hidden;
@@ -194,7 +263,7 @@
     -o-object-fit: contain;
        object-fit: contain;
 }
-/* ------------------------------------------ */
+/*｜ ------------------------------------------｜ */
 /* <a> white-text */
 .custom-link {
     color: azure;

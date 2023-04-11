@@ -15,10 +15,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
+    {{-- icons --}}
+    
 </head>
 <style>
     body {
         background-color: #000;
+        margin: 0;
+        padding: 0;
     }
 </style>
 <body>
@@ -26,7 +30,6 @@
         <a href="{{ route('index') }}" class="header-title custom-link">Parrot</a>
     </div>
     @yield('content')
-    <div>footer</div>
 </body>
 <script>
 </script>

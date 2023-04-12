@@ -208,10 +208,16 @@ nav li a{
 .lecturepage-background {
     background-color: #fff;
     margin-top: 125px;
-    height: 1050px;
+    height: 1150px;
+}
+.lecturepage-sub-title {
+    font-size: 15px;
+    text-align: center;
+    color: blue;
+    padding-top: 100px;
 }
 .lecturepage-title {
-    padding-top: 70px;
+    padding-top: 15px;
     padding-bottom: 80px;
     text-align: center;
 }

@@ -45,7 +45,8 @@
         </div>
     </div>
     <div class="lecturepage-background" id="lecturepage">
-        <h1 class="lecturepage-title">DRAWING CONTENT LECTURE</h1>
+        <p class="lecturepage-sub-title">Drawing Lecture</p>
+        <h1 class="lecturepage-title">ドローイングコンテンツの使用説明</h1>
         <div class="container">
             <div class="row">
                 <div class="col-md-6 lecturepage-container lecturepage-content">

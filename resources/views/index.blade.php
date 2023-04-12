@@ -10,7 +10,7 @@
         </h1>
         <div class="container">
             <div class="row toppage-column">
-                <div class="toppage-heightLine-parent text-center col-md-4 col-sm-12">
+                <div class="toppage-heightLine-parent toppage-heightLine-parent-left text-center col-md-4 col-sm-12">
                     <div class="card-custom">
                         <a href="{{ route('drawing') }}">
                             <button class="btn btn-outline-light">Drawing start</button>
@@ -45,13 +45,57 @@
         </div>
     </div>
     <div class="lecturepage-background">
-        <h1 class="lecturepage-title">Drawing lecture</h1>
+        <h1 class="lecturepage-title">DRAWING CONTENT LECTURE</h1>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 lecturepage-container lecturepage-content">
                     <img src="/toppage_image/undraw_making_art_re_ee8w.svg" alt="" class="lecturepage-img">
                 </div>
-                <div class="lecturepage-navbar col-md-6">
+                <div class="col-md-6 lecturepage-container lecturepage-content">
+                    <div id="carouselExampleIndicators" class="carousel slide lecturepage-carousel" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <div class="">
+                                <h4 id="" class="text-center lecturepage-carousel-title">- STEP 1 - <br>画材の用意</h4>
+                                <p class="lecturepage-carousel-text">ドローイングコンテンツを利用するには、アナログでもデジタルでも画材が必要です。アナログの場合は、描きやすいもの（鉛筆、色鉛筆、ペンなど）を選びましょう。デジタルの場合は、自分が使いやすいペンタブレットや液晶タブレット、ペン、ペイントソフトウェアを選ぶことが大切です。</p>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div>
+                                <h4 id="scrollspyHeading2" class="text-center lecturepage-carousel-title">- STEP 2 - <br>Drawingコンテンツにアクセスする</h4>
+                                <p class="lecturepage-carousel-text">「Drawing Start」ボタンまたは下にある「ドローイングコンテンツ」ボタンを押して、コンテンツにアクセスしましょう。</p>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div>
+                                <h4 id="scrollspyHeading3" class="text-center lecturepage-carousel-title">- STEP 3 - <br>各種設定を選ぶ</h4>
+                                <p class="lecturepage-carousel-text">当サイトのドローイングコンテンツでは、部位、枚数、時間を選択できます。自分に合った設定を選んで、画力向上を目指しましょう。初めての方は、難易度の低い設定を選ぶことをおすすめします。</p>
+                            </div>
+                          </div>
+                          <div class="carousel-item">
+                            <div>
+                                <h4 id="scrollspyHeading4" class="text-center lecturepage-carousel-title">- STEP 4 - <br>記録を残す</h4>
+                                <p class="lecturepage-carousel-text">練習で描いた作品を記録として残すことをおすすめします。これによって、自分の努力が可視化され、モチベーションにも繋がります。継続しなければ成長は望めませんので、ぜひ継続的な取り組みを心掛けましょう。</p>
+                            </div>
+                          </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                        </button>
+                      </div>
+                </div>
+                {{-- <div class="lecturepage-navbar col-md-6">
                     <div
                         data-bs-spy="scroll"
                         data-bs-target="#navbar-example2"
@@ -76,25 +120,24 @@
                             <p>練習で描いた作品を記録として残すことをおすすめします。これによって、自分の努力が可視化され、モチベーションにも繋がります。継続しなければ成長は望めませんので、ぜひ継続的な取り組みを心掛けましょう。</p>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="image-slider">
             <div class="image-slider__wrap">
                 <ul class="image-slider__list image-slider__list--left">
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/hand/adult-1868109__340.webp" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/foot/away-763918__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/adult-1867889__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/hand/align-fingers-71282__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/foot/baby-179377__340-1.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/africa-1994846__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/hand/apple-2391__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/foot/feet-423092__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/autumn-2010387__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/hand/arm-1284248__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/foot/baby-218193__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/baby-933097__340.jpg" alt></li>
                 </ul>
             </div>
         </div>
@@ -102,18 +145,17 @@
             <div class="image-slider__wrap">
                 <ul class="image-slider__list image-slider__list--right">
                     <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
-                    <li class="image-slider__item"><img src="/drawing-images/hand/compass-1753659__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/people-3279475__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/woman-3220835__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/hand/love-316640__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/foot/baby-501336__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/woman-2537564__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/hand/piano-4841121__340-1.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/foot/baby-1178539__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/sad-4133121__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/hand/tin-can-238488__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/foot/baby-1595389__340.jpg" alt></li>
+                    <li class="image-slider__item"><img src="/drawing-images/face/man-930397__340.jpg" alt></li>
                 </ul>
             </div>
         </div>

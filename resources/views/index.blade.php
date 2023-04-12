@@ -20,7 +20,7 @@
                 </div>
                 <div class="toppage-heightLine-parent text-center col-md-4 col-sm-12">
                     <div class="card-custom">
-                        <a href="">
+                        <a  href="#lecturepage">
                             <button class="btn btn-outline-light">Drawing lecture</button>
                         </a>
                         <p class="">Parrotサイトの<br>ドローイングコンテンツ<br>使用方法</p>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="toppage-heightLine-parent text-center col-md-4 col-sm-12">
                     <div class="card-custom">
-                        <a href="">
+                        <a href="{{ route('impPlan') }}">
                             <button class="btn btn-outline-light">Learn to Draw</button>
                         </a>
                         <p class="">Youtubeやブログ<br>の情報を部位ごとに<br>まとめてあります。</p>
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-    <div class="lecturepage-background">
+    <div class="lecturepage-background" id="lecturepage">
         <h1 class="lecturepage-title">DRAWING CONTENT LECTURE</h1>
         <div class="container">
             <div class="row">
@@ -95,32 +95,6 @@
                         </button>
                       </div>
                 </div>
-                {{-- <div class="lecturepage-navbar col-md-6">
-                    <div
-                        data-bs-spy="scroll"
-                        data-bs-target="#navbar-example2"
-                        data-bs-offset="0"
-                        class="scrollspy-example lecturepage-navtext-margin"
-                        tabindex="0"
-                    >
-                        <div class="">
-                            <h4 id="scrollspyHeading1" class="text-center">- STEP 1 - <br>画材の用意</h4>
-                            <p class="">ドローイングコンテンツを利用するには、アナログでもデジタルでも画材が必要です。アナログの場合は、描きやすいもの（鉛筆、色鉛筆、ペンなど）を選びましょう。デジタルの場合は、自分が使いやすいペンタブレットや液晶タブレット、ペン、ペイントソフトウェアを選ぶことが大切です。</p>
-                        </div>
-                        <div>
-                            <h4 id="scrollspyHeading2" class="text-center">- STEP 2 - <br>Drawingコンテンツにアクセスする</h4>
-                            <p>「Drawing Start」ボタンまたは下にある「ドローイングコンテンツ」ボタンを押して、コンテンツにアクセスしましょう。</p>
-                        </div>
-                        <div>
-                            <h4 id="scrollspyHeading3" class="text-center">- STEP 3 - <br>各種設定を選ぶ</h4>
-                            <p>当サイトのドローイングコンテンツでは、部位、枚数、時間を選択できます。自分に合った設定を選んで、画力向上を目指しましょう。初めての方は、難易度の低い設定を選ぶことをおすすめします。</p>
-                        </div>
-                        <div>
-                            <h4 id="scrollspyHeading4" class="text-center">- STEP 4 - <br>記録を残す</h4>
-                            <p>練習で描いた作品を記録として残すことをおすすめします。これによって、自分の努力が可視化され、モチベーションにも繋がります。継続しなければ成長は望めませんので、ぜひ継続的な取り組みを心掛けましょう。</p>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
         <div class="image-slider">
@@ -160,7 +134,41 @@
             </div>
         </div>
     </div>
-    <h1 class="target">非表示</h1>
+    <div class="footer container">
+        <div class="row">
+            <div class="footer-column col">
+                <h1>PARROT<br>DRAWING</h1>
+                <p>絵師成長応援サイト</p>
+            </div>
+            <div class="footer-col col">
+                <h1>SITEMAP</h1>
+                <a href="{{ route('drawing') }}">Drawingコンテンツ</a>
+                <a href="#lecturepage">コンテンツ解説</a>
+                <a href="{{ route('impPlan') }}">講座ブログ紹介</a>
+                <a href="{{ route('impPlan') }}">クレジット</a>
+                <a href="{{ route('impPlan') }}">Parrot運営募集</a>
+            </div>
+            <div class="footer-column col">
+                <h1>Content & Support</h1>
+                <div>
+                    <p>ドローイングコンテンツ</p>
+                    <a href="{{ route('drawing') }}">
+                        {{-- <img src="" alt=""> --}}
+                        <button>test</button>
+                    </a>
+                </div>
+                <div>
+                    <p>お問い合わせ</p>
+                    <a href="{{ route('impPlan') }}">
+                        {{-- <img src="" alt=""> --}}
+                        <button>test</button>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>
 <script>
 // スクロールしたらDrawingContentButtonが表示される処理
@@ -181,7 +189,7 @@ window.addEventListener("scroll", function () {
     }
 });
 // 指定コンテンツが表示された場合.toppage-drawingContent-buttonの非表示処理
-const target = document.querySelector('.target');
+const target = document.querySelector('.footer'); /*クラスを指定*/
 const button = document.querySelector('.toppage-drawingContent-button');
 
 const targetContent = new IntersectionObserver((entries, observer) => {

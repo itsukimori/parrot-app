@@ -16,7 +16,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@600&display=swap" rel="stylesheet">
     {{-- icons --}}
-    
 </head>
 <style>
     body {
@@ -28,6 +27,20 @@
 <body>
     <div class="header ">
         <a href="{{ route('index') }}" class="header-title custom-link">Parrot</a>
+        <div id="humMenu">
+            <input id="humCheck" type="checkbox">
+            <label id="humOpen" for="humCheck"><img src="/icons/btn03-25.png" alt="メニュー" width="40" height="40"></label>
+            <label id="humClose" for="humCheck"></label>
+            <nav>
+              <ul class="inner">
+                <li><a href="{{ route('index') }}">トップページ</a></li>
+                <li><a href="{{ route('drawing') }}">ドローイングコンテンツ</a></li>
+                <li><a href="#lecturepage">コンテンツ解説</a></li>
+                <li><a href="{{ route('impPlan') }}">講座ブログ紹介</a></li>
+                <li><a href="{{ route('impPlan') }}">お問い合わせ</a></li>
+              </ul>
+            </nav>
+        </div>
     </div>
     @yield('content')
 </body>

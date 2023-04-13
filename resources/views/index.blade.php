@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Parrot')
 @section('content')
-<div class="toppage-backImage">
-    <div>
+<div class="">
+    <div class="toppage-backImage">
         <h1 class="toppage-title">
             神になるには<br>
             <span class="gradient-text1">情熱</span>、<span class="gradient-text2">努力</span>、<span class="gradient-text3">練習</span><br>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="toppage-heightLine-parent text-center col-md-4 col-sm-12">
                     <div class="card-custom">
-                        <a href="{{ route('impPlan') }}">
+                        <a href="#illustrationLesson">
                             <button class="btn btn-outline-light">Learn to Draw</button>
                         </a>
                         <p class="">Youtubeやブログ<br>の情報を部位ごとに<br>まとめてあります。</p>
@@ -135,40 +135,62 @@
             </div>
         </div>
     </div>
+    <div class="illustrationLessonPage-background" id="illustrationLesson">
+        <div class="illustrationLessonPage-padding">
+            <p class="illustrationLessonPage-sub-title">Illustration Lesson</p>
+            <h1>Youtubeやブログで学ぼう</h1>
+        </div>
+        <div class="container illustrationLessonPage-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="/toppage_image/illustlesson.svg" alt="" class="illustrationLessonPage-img">
+                </div>
+                <div class="col-md-6">
+                    <div class="illusutrationLessonPage-column1">
+
+                    </div>
+                    <div class="illusutrationLessonPage-column2">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="footer container">
         <div class="row">
-            <div class="footer-column col">
+            <div class="footer-col col">
+                <p class="footer-col-border"></p>
                 <h1>PARROT<br>DRAWING</h1>
                 <p>絵師成長応援サイト</p>
+                {{-- <img src="" alt="">　ロゴ完成後実装 --}}
             </div>
             <div class="footer-col col">
+                <p class="footer-col-border"></p>
                 <h1>SITEMAP</h1>
                 <a href="{{ route('drawing') }}">Drawingコンテンツ</a>
                 <a href="#lecturepage">コンテンツ解説</a>
                 <a href="{{ route('impPlan') }}">講座ブログ紹介</a>
-                <a href="{{ route('impPlan') }}">クレジット</a>
+                <a href="{{ route('credit') }}">クレジット</a>
                 <a href="{{ route('impPlan') }}">Parrot運営募集</a>
             </div>
-            <div class="footer-column col">
+            <div class="footer-col col">
+                <p class="footer-col-border"></p>
                 <h1>Content & Support</h1>
-                <div>
+                <div class="footer-support-col">
                     <p>ドローイングコンテンツ</p>
                     <a href="{{ route('drawing') }}">
-                        {{-- <img src="" alt=""> --}}
-                        <button>test</button>
+                        <button type="button" class="btn btn-outline-light">DRAWNG</button>
                     </a>
                 </div>
                 <div>
                     <p>お問い合わせ</p>
                     <a href="{{ route('impPlan') }}">
-                        {{-- <img src="" alt=""> --}}
-                        <button>test</button>
+                        <button type="button" class="btn btn-outline-light">CONTACT</button>
                     </a>
                     
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
 <script>

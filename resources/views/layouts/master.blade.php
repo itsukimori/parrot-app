@@ -23,6 +23,10 @@
         margin: 0;
         padding: 0;
     }
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
 </style>
 <body>
     <div class="header ">
@@ -38,6 +42,7 @@
                 <li><a href="#lecturepage">コンテンツ解説</a></li>
                 <li><a href="{{ route('impPlan') }}">講座ブログ紹介</a></li>
                 <li><a href="{{ route('impPlan') }}">お問い合わせ</a></li>
+                <li><a href="{{ route('impPlan') }}">Parrot運営募集</a></li>
               </ul>
             </nav>
         </div>

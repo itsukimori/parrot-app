@@ -13,10 +13,10 @@
     height: 70px;
     z-index: 9999;
 }
-
-.header-title {
-    margin-left: 20px;
-    text-decoration: none;
+.header-logoImg {
+    height: 70px;
+    width: 100%;
+    margin-left: 10px;
 }
 
 /* ハンバーガーメニュー */
@@ -300,11 +300,58 @@ nav li a{
 }
 
 /* |------------------------------------------------------| */
+/* |-----------------------Illustration Lesson Page-------------------------------| */
+.illustrationLessonPage-background {
+    background-color: #f3f4f6;
+    height: 1000px;
+    
+}
+.illustrationLessonPage-padding {
+    padding-top: 75px;
+    text-align: center;
+}
+.illustrationLessonPage-title {
+    padding-top: 15px;
+    text-align: center;
+}
+.illustrationLessonPage-sub-title {
+    font-size: 15px;
+    text-align: center;
+    color: #FF2965;
+}
+.illustrationLessonPage-content {
+    margin-top: 80px;
+}
+.illustrationLessonPage-img {
+    margin-bottom: -100px;
+    height: 100%;
+    width: 100%;
+}
+.illusutrationLessonPage-column1 {
+    background-color: #fff;
+    height: 250px;
+    margin-bottom: 20px;
+    border-radius: 35px;
+    padding: 10px;
+}
+.illusutrationLessonPage-column2 {
+    background-color: #392c39;
+    height: 250px;
+    border-radius: 35px;
+    padding: 10px;
+}
+/* レッスン画像とカラムの大きさを合わせる */
+
+/* |------------------------------------------------------| */
 /* |---------------------------footer------------------------------| */
 .footer {
     height: 500px;
     color: #fff;
     margin-top: 75px;
+}
+.footer-col-border {
+    border-top: solid 10px blue;
+    margin-right: 360px;
 }
 /* Aタグ縦ならべ */
 .footer-col a {
@@ -364,7 +411,25 @@ nav li a{
        object-fit: contain;
 }
 /*｜ ------------------------------------------｜ */
-/* <a> white-text */
-.custom-link {
-    color: azure;
+/* |----------------クレジットページ------------------| */
+.creditpage {
+    margin-top: 100px;
+    background-color: #fff;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 25px;
 }
+.creditpage-content {
+    margin: 30px;
+}
+.creditpage-listColor {
+    color: #000;
+}
+.creditpage-urlReference {
+    border-bottom: #cccccc solid 1px;
+}
+.creditpage-serviceReference {
+    border-bottom: #cccccc solid 1px;
+}
+/* |----------------------------------| */

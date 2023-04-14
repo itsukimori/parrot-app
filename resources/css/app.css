@@ -406,6 +406,10 @@ nav li a{
     border-top: solid 10px blue;
     margin-right: 360px;
 }
+.footer-logo {
+    max-width: 70%;
+    height: auto;
+}
 /* Aタグ縦ならべ */
 .footer-col a {
     display: block;

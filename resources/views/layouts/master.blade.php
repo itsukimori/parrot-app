@@ -31,7 +31,7 @@
 </style>
 <body>
     <div class="header ">
-        <a href="{{ route('index') }}" class="header-title custom-link">Parrot</a>
+        <a href="{{ route('index') }}" class="header-title custom-link"><img src="/toppage_image/logo.png" alt="" class="header-logoImg"></a>
         <div id="humMenu">
             <input id="humCheck" type="checkbox">
             <label id="humOpen" for="humCheck"><img src="/icons/btn03-25.png" alt="メニュー" width="40" height="40"></label>

@@ -186,7 +186,7 @@
                 <p class="footer-col-border"></p>
                 <h1>PARROT<br>DRAWING</h1>
                 <p>絵師成長応援サイト</p>
-                {{-- <img src="" alt="">　ロゴ完成後実装 --}}
+                <img src="/toppage_image/logo.png" alt="" class="footer-logo">
             </div>
             <div class="footer-col col">
                 <p class="footer-col-border"></p>

@@ -146,11 +146,35 @@
                     <img src="/toppage_image/illustlesson.svg" alt="" class="illustrationLessonPage-img">
                 </div>
                 <div class="col-md-6">
-                    <div class="illusutrationLessonPage-column1">
-
-                    </div>
-                    <div class="illusutrationLessonPage-column2">
-
+                    <div class="illustrationLessonPage-column1">
+                        <h2 class="illustrationLessonPage-column1-margin">プロの技術を見て成長加速</h2>
+                        <div class="illustrationLessonPage-column1-margin_col row">
+                            <div class="illustrationLessonPage-column1-icons4 col">
+                                <div class="illustrationLessonPage-column-flex">
+                                    <div class="illustrationLessonPage-icon-flex">
+                                        <span class="material-symbols-outlined">youtube_activity</span>
+                                        <p class="">動画で<br>身につける</p>
+                                    </div>
+                                    <div class="illustrationLessonPage-icon-flex">
+                                        <span class="material-symbols-outlined">demography</span>
+                                        <p>優良な<br>記事を提供</p>
+                                    </div>
+                                </div>
+                                <div class="illustrationLessonPage-column-flex">
+                                    <div class="illustrationLessonPage-icon-flex">
+                                        <span class="material-symbols-outlined">accessibility_new</span>
+                                        <p>部位選<br>択ができる</p>
+                                    </div>
+                                    <div class="illustrationLessonPage-icon-flex">
+                                        <span class="material-symbols-outlined">pin</span>
+                                        <p>難易度<br>順に並べる</p>
+                                    </div>
+                                </div>
+                                <p class="illustrationLessonPage-content-text">コンテンツを開始するには、ボタンをクリックしてください↓</p>
+                                <a href="{{ route('impPlan') }}"><button type="button" class="btn btn-outline-danger">Lesson start</button></a>
+                            </div>
+                            <img src="/toppage_image/undraw_mobile_search_p2ka.svg" alt="" class="col illustrationLessonPage-column1-img">
+                        </div>
                     </div>
                 </div>
             </div>

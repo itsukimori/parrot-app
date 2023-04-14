@@ -340,21 +340,61 @@ nav li a{
     height: 100%;
     width: 100%;
 }
-.illusutrationLessonPage-column1 {
+.illustrationLessonPage-column1 {
+    color: #000;
     background-color: #fff;
-    height: 250px;
+    height: 450px;
     margin-bottom: 20px;
     border-radius: 35px;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
-.illusutrationLessonPage-column2 {
-    background-color: #392c39;
-    height: 250px;
-    border-radius: 35px;
-    padding: 10px;
+.illustrationLessonPage-column1-margin {
+    margin-top: 5%;
+    text-align: center;
 }
-/* レッスン画像とカラムの大きさを合わせる */
-
+.illustrationLessonPage-column1-img {
+    object-fit: contain;
+    width: 100%;
+    height: calc(100% - 30px); /* 親要素の高さからマージン分を引いた高さに設定 */
+}
+.illustrationLessonPage-column1-margin_col {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+}
+.illustrationLessonPage-column1-icons4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 70%;
+    margin-left: 20px;
+    font-size: large;
+    padding-bottom: 100px;
+}
+.illustrationLessonPage-column-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.illustrationLessonPage-icon-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.illustrationLessonPage-content-text {
+    font-size: 10px;
+    color: #F50057;
+}
+/* Icon */
+.material-symbols-outlined {
+    font-size: 50px !important;
+    margin-right: 10px;
+}
 /* |------------------------------------------------------| */
 /* |---------------------------footer------------------------------| */
 .footer {

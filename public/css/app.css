@@ -405,23 +405,55 @@ nav li a{
 }  
 /* |---------------------------------------------------------| */
 /* ｜---------------Drawing Content--------------------｜ */
+/* コンテナのスタイル設定 */
+.drawingContent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+ /* ボーダーのスタイル設定 */
+.drawingContent-border {
+    margin-top: 10%;
+    position: relative;
+    height: 60%;
+    width: 95%;
+    background-color: #f3f4f6;
+    border-radius: 30px;
+    padding: 30px;
+  }
+  
+  /* 画像のスタイル設定 */
+  .drawingContent-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+    margin: auto;
+    height: 80%; /* 画像の高さを指定 */
+    width: auto; /* 幅は自動でアスペクト比に基づいて設定されます */
+  }
+  
 .drawingContent-color {
     color: #fff;
     background-color: black;
     height: 100vh;
 }
 .drawingContent-margin {
-    padding-top: 200px;
+    padding-top: 20%;
 }
 .drawingContent-startButton {
     margin-top: 10px;
-}
-.my-image {
-    margin-top: 50px;
-    max-width: 60%;
-    max-height: 60%;
-    height: auto;
-    width: auto;
 }
 .drawingContent-finishButton {
     margin-top: 20px;

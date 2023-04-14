@@ -1,7 +1,6 @@
 <template>
     <div class="container text-center">
         <div class="drawingContent-margin" v-if="selectOption">
-            <h1 class="">Drawing</h1>
             <div class="row">
                 <div class="col-12 col-md-4 my-2">
                     <div class="card">
@@ -48,10 +47,12 @@
             <button v-on:click="startAction" type="button" class="btn btn-outline-dark drawingContent-startButton">START</button>
         </div>
         <div v-if="showImage">
-            <div class="d-flex justify-content-center">
-                <div class="img-responsive-container">
-                    <img :src="imageSrc" alt="" class="img-fluid img-fluid my-image">
-                </div>
+            <div class="drawingContent-container">
+                <div class="drawingContent-border">
+                    <div class="">
+                        <img :src="imageSrc" alt="" class="drawingContent-image">
+                    </div>
+                </div>    
             </div>
         </div>
         <div v-if="finishContent" class="drawingContent-margin">

@@ -15,7 +15,7 @@
                         <a href="{{ route('drawing') }}">
                             <button class="btn btn-outline-light">Drawing start</button>
                         </a>
-                        <p class="">やり方が分からない<br>人は隣のDrawing lecture<br>見てね</p>
+                        <p class="">やり方が分からない<br>人はDrawing lecture<br>見てね</p>
                     </div>
                 </div>
                 <div class="toppage-heightLine-parent text-center col-md-4 col-sm-12">
@@ -198,7 +198,8 @@
                 <a href="{{ route('impPlan') }}">Parrot運営募集</a>
             </div>
             <div class="footer-col col">
-                <p class="footer-col-border"></p>
+                <p id="footer-col-border-last" class="footer-col-border"></p>
+                <p class="footer-col-border_mobile"></p>
                 <h1>Content & Support</h1>
                 <div class="footer-support-col">
                     <p>ドローイングコンテンツ</p>

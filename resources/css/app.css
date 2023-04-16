@@ -250,12 +250,12 @@ nav li a{
     border-bottom: solid 2px #cccccc;
 }
 .lecturepage-carousel-title {
-    padding-top: 30px;
+    padding-top: 5%;
 }
 .lecturepage-carousel-text {
     padding-top: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 /* レクチャー画像とカルーセルの高さを合わせる */
 .lecturepage-container {
@@ -404,7 +404,7 @@ nav li a{
 }
 .footer-col-border {
     border-top: solid 10px blue;
-    margin-right: 360px;
+    margin-right: 85%;
 }
 .footer-logo {
     max-width: 70%;
@@ -520,3 +520,238 @@ nav li a{
     border-bottom: #cccccc solid 1px;
 }
 /* |----------------------------------| */
+/* |------------レスポンシブ-------------| */
+/* スマホ向けのスタイル */
+@media (max-width: 420px) {
+    /* header */
+    .header-logoImg {
+        height: 55px;
+    }
+    /* toppage */
+    .toppage-title {
+        font-size: 39px;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .gradient-text1,
+    .gradient-text2,
+    .gradient-text3 {
+        margin-left: 3%;
+        margin-right: 3%;
+        font-size: 39px;
+    }
+    .toppage-column {
+        font-size: 10px;
+    }
+    .toppage-heightLine-parent {
+        margin-bottom: -35px;
+    }
+    .card-custom {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .card-custom a,
+    .card-custom p {
+        flex: 1;
+        margin: 0 10px;
+    }
+    .card-custom a .btn{
+        width: 100px;
+    }
+    .toppage-heightLine-parent{
+        border-bottom: solid 1px #fff; 
+        margin-bottom: -20px;
+        border-right: none;
+        padding-left: 5% !important;
+    }
+    .toppage-heightLine-parent-left {
+        border-left: none;
+    }
+    .toppage-backImage {
+        height: 750px;
+    }
+    .toppage-drawingContent-button {
+        top: 80%;
+        left: 2%;
+    }
+    .toppage-drawingContent-button-img {
+        width: 240px;
+        height: 109px;
+    }
+    /* Drawing-content lecturepage */
+    .lecturepage-background {
+        height: 1400px;
+    }
+    .lecturepage-sub-title {
+        padding-top: 50px;
+    }
+
+    .image-slider__item {
+        width: calc(100vw / 2);
+    }
+    /* IllustrationLessonPage */
+    .illustrationLessonPage-column1 {
+        height: 350px;
+    }
+    .illustrationLessonPage-column1-img {
+        display: none;
+    }
+    /* footer */
+    .footer {
+        margin-bottom: 100px;
+    }
+    .footer-logo {
+        max-width: 60%;
+    }
+    #footer-col-border-last {
+        display: none;
+    }
+    .footer-col-border_mobile {
+        border-top: solid 10px blue;
+        margin-right: 93%;
+    }
+  }
+/* スマホとタブレットの間 */
+@media (max-width: 767px) and (min-width: 421px) {
+    /* header */
+    .header-logoImg {
+        height: 55px;
+    }
+    /* toppage */
+    .toppage-title {
+        font-size: 60px;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+    .gradient-text1,
+    .gradient-text2,
+    .gradient-text3 {
+        margin-left: 3%;
+        margin-right: 3%;
+        font-size: 60px;
+    }
+    .toppage-column {
+        font-size: 10px;
+    }
+    .toppage-heightLine-parent {
+        margin-bottom: -35px;
+    }
+    .card-custom {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .card-custom a,
+    .card-custom p {
+        flex: 1;
+        margin: 0 10px;
+    }
+    .card-custom a .btn{
+        width: 100px;
+    }
+    .toppage-heightLine-parent{
+        border-bottom: solid 1px #fff; 
+        margin-bottom: -20px;
+        border-right: none;
+        padding-left: 5% !important;
+    }
+    .toppage-heightLine-parent-left {
+        border-left: none;
+    }
+    .toppage-backImage {
+        height: 750px;
+    }
+    .toppage-drawingContent-button {
+        top: 80%;
+        left: 2%;
+    }
+    .toppage-drawingContent-button-img {
+        width: 240px;
+        height: 109px;
+    }
+    /* Drawing-content lecturepage */
+    .lecturepage-background {
+        height: 1400px;
+    }
+    .lecturepage-sub-title {
+        padding-top: 50px;
+    }
+    .image-slider__item {
+        width: calc(100vw / 4);
+    }
+    /* IllustrationLessonPage */
+    .illustrationLessonPage-background {
+        height: 1100px;
+    }
+    .illustrationLessonPage-column1 {
+        height: 380px;
+    }
+    .illustrationLessonPage-column1-img {
+        display: none;
+    }
+    .illustrationLessonPage-column-flex {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    /* footer */
+    .footer {
+        margin-bottom: 100px;
+    }
+    .footer-logo {
+        max-width: 60%;
+    }
+}
+/* タブレット向け */
+@media (max-width: 1024px) and (min-width: 768px) {
+    /* toppage */
+    .toppage-backImage {
+        height: 750px;
+    }
+    .toppage-title {
+        font-size: 84px;
+    }
+    .toppage-drawingContent-button {
+        top: 530px;
+        left: 2%;
+    }
+    /* drawing lecture page  */
+    .image-slider__item {
+        width: calc(100vh / 4);
+    }
+    .lecturepage-img {
+        width: 380px;
+        height: auto;
+        padding-right: 10px;
+    }
+    /* illustrationLessonPage */
+    .illustrationLessonPage-background {
+        height: 770px;
+    }
+    .illustrationLessonPage-column1-img {
+        display: none;
+    }
+    .illustrationLessonPage-column1 {
+        height: 410px;
+    }
+}
+/* タブレットとPCモニターの間 */
+@media (max-width: 1199px) and (min-width: 1025px) {
+    /* illustrationLessonPage */
+    .illustrationLessonPage-background {
+        height: 800px;
+    }
+    .illustrationLessonPage-column1-img {
+        display: none;
+    }
+    .illustrationLessonPage-column-flex {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .illustrationLessonPage-column1-margin {
+        margin-top: 75px;
+    }
+}
+/* |-------------------------------------| */

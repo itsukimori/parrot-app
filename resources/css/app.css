@@ -1,58 +1,475 @@
-/* Header */
+/* |---------Header-------------|*/
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: azure;
     font-size: 45px;
     background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    z-index: 9999;
 }
-.header-title {
-    margin-left: 20px;
-    text-decoration: none;
+.header-logoImg {
+    height: 70px;
+    width: 100%;
+    margin-left: 10px;
 }
 
-/* Toppage */
+/* ハンバーガーメニュー */
+#humMenu {
+    padding: 12px;
+    background: #000;
+}
+
+#humCheck, #humClose { display:none; }
+#humOpen {
+    display: block;
+    width: 58px;
+    cursor: pointer;
+}
+#humOpen:hover {
+    opacity: 0.5;
+}
+#humOpen img { display: block; }
+#humClose, nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+#humClose {
+    z-index: 2;
+    width: 100%;
+    background: gray;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+nav {
+    z-index: 3;
+    width: 330px;
+    background: white;
+    transition: 0.5s;
+    transform: translateX(100%);
+}
+#humCheck:checked ~ #humClose { display: block; }
+#humCheck:checked ~ nav {
+    transform: translateX(0);
+}
+nav ul{
+    overflow: hidden;
+    list-style: none;
+}
+nav li{
+    padding: 15px 0;
+    margin: 10px 0;
+}
+nav li:hover{
+    opacity: 0.5;
+}
+nav li a{
+    font-size: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
+/* |---------------------------------------| */
+
+/*|-------------Toppage-----------------------------| */
 .toppage-width {
     width: 100%;
 }
+/* トップタイトル */
 .toppage-title {
+    font-family: 'Noto Serif JP', serif;
     color: azure;
+    /* font-size: 2rem; */
+    line-height: 1.2;
+    text-align: center;
     font-size: 100px;
-    padding-top: 130px;
+    padding-top: 190px;
 }
+/* トップページタイトル文字のグラデーションアニメ処理 */
+.gradient-text1 {
+    display: inline-block;
+    margin: 0;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background: url('../../public/toppage_image/text1.png'); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-animation: bgAnim 20s alternate infinite ease-in-out;
+            animation: bgAnim 20s alternate infinite ease-in-out;
+    font-size: 100px;
+    line-height: 1;
+}
+.gradient-text2 {
+    display: inline-block;
+    margin: 0;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background: url('../../public/toppage_image/text2.png');
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-animation: bgAnim 20s alternate infinite ease-in-out;
+            animation: bgAnim 20s alternate infinite ease-in-out;
+    font-size: 100px;
+    line-height: 1;
+}
+.gradient-text3 {
+    display: inline-block;
+    margin: 0;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background: url('../../public/toppage_image/text3.png');
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-animation: bgAnim 20s alternate infinite ease-in-out;
+            animation: bgAnim 20s alternate infinite ease-in-out;
+    font-size: 100px;
+    line-height: 1;
+}
+@-webkit-keyframes bgAnim {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+@keyframes bgAnim {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+/* 背景画像 */
 .toppage-backImage {
     background-image: url(../../public/toppage_image/toppage_image00.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 670px;
+    height: 870px;
+}
+/* ドローイングコンテンツボタン */
+.scroll-fade-in {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out;
 }
 .toppage-drawingContent-button {
-    padding-top: 150px;
-    padding-left: 75px;
+    position: fixed;
+    top: 575px;
+    left: 62px;
+    z-index: 9998;
+}
+.toppage-drawingContent-button-img {
+    width: calc(240px * 1.25);
+    height: calc(109px * 1.25);
+}
+/* トップカラム */
+.row-centered {
+    justify-content: center;
+}
+.toppage-column {
+    padding-top: 40px;
+    color: #fff;
+    row-gap: 20px;
+}
+.toppage-heightLine-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border-right: 1px solid #fff;
+    padding: 0 10px;
+}
+.toppage-heightLine-parent-left {
+    border-left: 1px solid #fff;
+}
+.card-custom {
+    width: 300px;
+}
+.card-custom {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.card-custom .btn-outline-light {
+    width: 100%;
+    height: 100%;
+} 
+
+.target {
+    color: #fff;
+}
+/* ｜-----------------------------------------------------｜ */
+/* |--------------Drawing lecture Page--------------------| */
+.lecturepage-background {
+    background-color: #fff;
+    margin-top: 125px;
+    height: 1150px;
+}
+.lecturepage-sub-title {
+    font-size: 15px;
+    text-align: center;
+    color: blue;
+    padding-top: 100px;
+}
+.lecturepage-title {
+    padding-top: 15px;
+    padding-bottom: 80px;
+    text-align: center;
+}
+/* レクチャー画像 */
+.lecturepage-img{
+    width: 80%;
+    height: auto;
+}
+/* カルーセル */
+.lecturepage-carousel {
+    background-color: #f4f4f4;
+    border-top-left-radius: 10%; /* 上部左側の角を丸くする */
+    border-top-right-radius: 10%; /* 上部右側の角を丸くする */
+    height: 400px;
+    padding: 30px;
+    border-bottom: solid 2px #cccccc;
+}
+.lecturepage-carousel-title {
+    padding-top: 30px;
+}
+.lecturepage-carousel-text {
+    padding-top: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+/* レクチャー画像とカルーセルの高さを合わせる */
+.lecturepage-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.lecturepage-content {
+    flex-grow: 1;
+}
+/* 画像スライダー */
+.image-slider {
+    margin-top: 75px;
+    margin-bottom: -30px;
+}
+@keyframes infinity-scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+}
+@keyframes infinity-scroll-right {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+.image-slider__wrap {
+    display: flex;
+    overflow: hidden;
+}
+.image-slider__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.image-slider__list--left {
+    animation: infinity-scroll-left 47.5s infinite linear 0.5s both;
+}
+.image-slider__list--right {
+    animation: infinity-scroll-right 47.5s infinite linear 0.5s both;
+}
+.image-slider__item {
+    width: calc(100vw / 6);
+}
+.image-slider__item > img {
+    width: 100%;
+    height: 120px; /*画像高さ調整*/
+    object-fit: cover; /*アスペクト維持*/
 }
 
-/* Drawing Content */
+/* |------------------------------------------------------| */
+/* |-----------------------Illustration Lesson Page-------------------------------| */
+.illustrationLessonPage-background {
+    background-color: #f3f4f6;
+    height: 1000px;
+    
+}
+.illustrationLessonPage-padding {
+    padding-top: 75px;
+    text-align: center;
+}
+.illustrationLessonPage-title {
+    padding-top: 15px;
+    text-align: center;
+}
+.illustrationLessonPage-sub-title {
+    font-size: 15px;
+    text-align: center;
+    color: #FF2965;
+}
+.illustrationLessonPage-content {
+    margin-top: 80px;
+}
+.illustrationLessonPage-img {
+    margin-bottom: -100px;
+    height: 100%;
+    width: 100%;
+}
+.illustrationLessonPage-column1 {
+    color: #000;
+    background-color: #fff;
+    height: 450px;
+    margin-bottom: 20px;
+    border-radius: 35px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.illustrationLessonPage-column1-margin {
+    margin-top: 5%;
+    text-align: center;
+}
+.illustrationLessonPage-column1-img {
+    object-fit: contain;
+    width: 100%;
+    height: calc(100% - 30px); /* 親要素の高さからマージン分を引いた高さに設定 */
+}
+.illustrationLessonPage-column1-margin_col {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    height: 100%;
+}
+.illustrationLessonPage-column1-icons4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 70%;
+    margin-left: 20px;
+    font-size: large;
+    padding-bottom: 100px;
+}
+.illustrationLessonPage-column-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.illustrationLessonPage-icon-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.illustrationLessonPage-content-text {
+    font-size: 10px;
+    color: #F50057;
+}
+/* Icon */
+.material-symbols-outlined {
+    font-size: 50px !important;
+    margin-right: 10px;
+}
+/* |------------------------------------------------------| */
+/* |---------------------------footer------------------------------| */
+.footer {
+    height: 500px;
+    color: #fff;
+    margin-top: 75px;
+}
+.footer-col-border {
+    border-top: solid 10px blue;
+    margin-right: 360px;
+}
+.footer-logo {
+    max-width: 70%;
+    height: auto;
+}
+/* Aタグ縦ならべ */
+.footer-col a {
+    display: block;
+    margin-bottom: 10px;
+}  
+/* |---------------------------------------------------------| */
+/* ｜---------------Drawing Content--------------------｜ */
+/* コンテナのスタイル設定 */
+.drawingContent-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+ /* ボーダーのスタイル設定 */
+.drawingContent-border {
+    margin-top: 10%;
+    position: relative;
+    height: 60%;
+    width: 95%;
+    background-color: #f3f4f6;
+    border-radius: 30px;
+    padding: 30px;
+  }
+  
+  /* 画像のスタイル設定 */
+  .drawingContent-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: auto;
+    height: 80%; /* 画像の高さを指定 */
+    width: auto; /* 幅は自動でアスペクト比に基づいて設定されます */
+  }
+  
 .drawingContent-color {
-    color: azure;
+    color: #fff;
     background-color: black;
     height: 100vh;
 }
 .drawingContent-margin {
-    padding-top: 200px;
+    padding-top: 20%;
 }
 .drawingContent-startButton {
     margin-top: 10px;
 }
-.my-image {
-    margin-top: 50px;
-    max-width: 60%;
-    max-height: 60%;
-    height: auto;
-    width: auto;
-}
 .drawingContent-finishButton {
     margin-top: 20px;
 }
-/* カード内のスタイル調整 */
+/* --カード内のスタイル調整-- */
 .card {
     min-height: 200px; /* カードの高さを指定 */
 }
@@ -69,9 +486,7 @@
     align-items: center;
     justify-content: center;
 }
-  
-
-/* スマホ対応 */
+/* --カードのスマホ対応-- */
 .img-responsive-container {
     width: 100%;
     overflow: hidden;
@@ -82,7 +497,26 @@
     height: auto;
     object-fit: contain;
 }
-/* <a> white-text */
-.custom-link {
-    color: azure;
+/*｜ ------------------------------------------｜ */
+/* |----------------クレジットページ------------------| */
+.creditpage {
+    margin-top: 100px;
+    background-color: #fff;
+    height: auto;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 25px;
 }
+.creditpage-content {
+    margin: 30px;
+}
+.creditpage-listColor {
+    color: #000;
+}
+.creditpage-urlReference {
+    border-bottom: #cccccc solid 1px;
+}
+.creditpage-serviceReference {
+    border-bottom: #cccccc solid 1px;
+}
+/* |----------------------------------| */

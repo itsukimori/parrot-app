@@ -16,6 +16,12 @@ use App\Http\Controllers\DrawingContentController;
 */
 
 
-
+// トップページ
 Route::get('/', [IndexController::class, 'index'])->name('index');
+// クレジットページ
+Route::get('/credit', fn() => view('credit.credit'))->name('credit');
+// ドローイングコンテンツ
 Route::get('/drawing', [DrawingContentController::class, 'drawing'])->name('drawing');
+
+// 実装予定ルート
+Route::get('/sorry', fn() => view('imp-plan'))->name('impPlan');

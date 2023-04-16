@@ -17518,9 +17518,11 @@ __webpack_require__.r(__webpack_exports__);
           break;
         case 'face':
           this.optionBodyparts = '顔';
+          this.optionBodypartsText = '顔は表情など、人間の印象を大きく左右する部位であるため、非常に重要です。';
           break;
         case 'foot':
           this.optionBodyparts = '足';
+          this.optionBodypartsText = '角度や形状によって描きづらい部位でもありますが、継続的な練習で上達できます。';
           break;
       }
     },
@@ -17650,38 +17652,27 @@ var _hoisted_26 = {
 var _hoisted_27 = {
   "class": "card-text"
 };
-var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "1000"
-}, "1", -1 /* HOISTED */);
-var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "5000"
-}, "5", -1 /* HOISTED */);
-var _hoisted_30 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "10000"
-}, "10", -1 /* HOISTED */);
-var _hoisted_31 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
-  value: "120000"
-}, "120", -1 /* HOISTED */);
-var _hoisted_32 = [_hoisted_28, _hoisted_29, _hoisted_30, _hoisted_31];
-var _hoisted_33 = {
+var _hoisted_28 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<option value=\"5000\">5</option><option value=\"30000\">30</option><option value=\"60000\">60</option><option value=\"90000\">90</option><option value=\"120000\">120</option>", 5);
+var _hoisted_33 = [_hoisted_28];
+var _hoisted_34 = {
   key: 1
 };
-var _hoisted_34 = {
+var _hoisted_35 = {
   "class": "drawingContent-container"
 };
-var _hoisted_35 = {
+var _hoisted_36 = {
   "class": "drawingContent-border"
 };
-var _hoisted_36 = {
+var _hoisted_37 = {
   "class": ""
 };
-var _hoisted_37 = ["src"];
-var _hoisted_38 = {
+var _hoisted_38 = ["src"];
+var _hoisted_39 = {
   key: 2,
   "class": "drawingContent-margin"
 };
-var _hoisted_39 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "終了しました。", -1 /* HOISTED */);
-var _hoisted_40 = {
+var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "終了しました。", -1 /* HOISTED */);
+var _hoisted_41 = {
   "class": "drawingContent-finishButton"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -17715,17 +17706,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onChange: _cache[5] || (_cache[5] = function () {
       return $options.onOptionTime && $options.onOptionTime.apply($options, arguments);
     })
-  }, _hoisted_32, 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, _ctx.selectedTime]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, _hoisted_33, 544 /* HYDRATE_EVENTS, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, _ctx.selectedTime]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[6] || (_cache[6] = function () {
       return $options.startAction && $options.startAction.apply($options, arguments);
     }),
     type: "button",
     "class": "btn btn-outline-dark drawingContent-startButton"
-  }, "START")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showImage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_33, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  }, "START")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showImage ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_34, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_35, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_36, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_37, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: $data.imageSrc,
     alt: "",
     "class": "drawingContent-image"
-  }, null, 8 /* PROPS */, _hoisted_37)])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.finishContent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_38, [_hoisted_39, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_40, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 8 /* PROPS */, _hoisted_38)])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.finishContent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[7] || (_cache[7] = function () {
       return $options.redirectToDrawing && $options.redirectToDrawing.apply($options, arguments);
     }),

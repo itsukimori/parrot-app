@@ -35,9 +35,10 @@
                             <h5 class="card-title">時間: {{ optionTime }}</h5>
                             <p class="card-text">{{ optionTimeText }}</p>
                             <select v-model="selectedTime" name="" id="" class="form-select w-100" @change="onOptionTime">
-                                <option value="1000">1</option>
                                 <option value="5000">5</option>
-                                <option value="10000">10</option>
+                                <option value="30000">30</option>
+                                <option value="60000">60</option>
+                                <option value="90000">90</option>
                                 <option value="120000">120</option>
                             </select>
                         </div>
@@ -156,9 +157,11 @@ export default {
                     break;
                 case 'face':
                     this.optionBodyparts = '顔';
+                    this.optionBodypartsText = '顔は表情など、人間の印象を大きく左右する部位であるため、非常に重要です。'
                     break;
                 case 'foot':
                     this.optionBodyparts = '足';
+                    this.optionBodypartsText = '角度や形状によって描きづらい部位でもありますが、継続的な練習で上達できます。'
                     break;
             }
         },

@@ -1,10 +1,10 @@
 @extends('layouts.master')
-@section('title', 'Parrot')
+@section('title', 'credit')
 @section('content')
-<div class="container">
+<div class="credit-container container">
     <div class="creditpage">
-        <div class="creditpage-content">
-            <div class="creditpage-urlReference">
+        <div class="creditpage-content row">
+            <div class="creditpage-urlReference col">
                 <h2>画像参照元</h2>
                 <ul class="">
                     <li><a href="https://pixabay.com" class="creditpage-listColor">https://pixabay.com</a></li>
@@ -16,7 +16,7 @@
                     <li ><a href="https://undraw.co" class="creditpage-listColor">https://undraw.co</a></li>
                 </ul>
             </div>
-            <div class="creditpage-serviceReference">
+            <div class="creditpage-serviceReference col">
                 <h2>参考サイト</h2>
                 <ul class="creditpage-content-listCenter">
                     <li><a href="https://recruit.akatsuki-sc.com" class="creditpage-listColor">https://recruit.akatsuki-sc.com/</a></li>

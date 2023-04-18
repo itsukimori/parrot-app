@@ -209,7 +209,7 @@
                 </div>
                 <div>
                     <p>お問い合わせ</p>
-                    <a href="{{ route('impPlan') }}">
+                    <a href="{{ route('contact.contact') }}">
                         <button type="button" class="btn btn-outline-light">CONTACT</button>
                     </a>
                     

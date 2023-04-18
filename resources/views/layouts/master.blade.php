@@ -28,6 +28,9 @@
         color: #fff;
         text-decoration: none;
     }
+    ul {
+        list-style-type: none;
+    }
 </style>
 <body>
     <div class="header ">
@@ -42,7 +45,7 @@
                 <li><a href="{{ route('drawing') }}">ドローイングコンテンツ</a></li>
                 <li><a href="#lecturepage">コンテンツ解説</a></li>
                 <li><a href="{{ route('impPlan') }}">講座ブログ紹介</a></li>
-                <li><a href="{{ route('impPlan') }}">お問い合わせ</a></li>
+                <li><a href="{{ route('contact.contact') }}">お問い合わせ</a></li>
                 <li><a href="{{ route('impPlan') }}">Parrot運営募集</a></li>
               </ul>
             </nav>

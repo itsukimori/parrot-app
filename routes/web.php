@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DrawingContentController;
 
 /*
@@ -22,6 +23,8 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/credit', fn() => view('credit.credit'))->name('credit');
 // ドローイングコンテンツ
 Route::get('/drawing', [DrawingContentController::class, 'drawing'])->name('drawing');
+// お問い合わせ
+Route::get('/contact', fn() => view('contact.contact'))->name('contact.contact');
 
 // 実装予定ルート
 Route::get('/sorry', fn() => view('imp-plan'))->name('impPlan');

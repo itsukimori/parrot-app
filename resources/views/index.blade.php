@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <p class="illustrationLessonPage-content-text">コンテンツを開始するには、ボタンをクリックしてください↓</p>
-                                <a href="{{ route('impPlan') }}"><button type="button" class="btn btn-outline-danger">Lesson start</button></a>
+                                <a href="{{ route('illustLesson') }}"><button type="button" class="btn btn-outline-danger">Lesson start</button></a>
                             </div>
                             <img src="/toppage_image/undraw_mobile_search_p2ka.svg" alt="" class="col illustrationLessonPage-column1-img">
                         </div>
@@ -193,7 +193,7 @@
                 <h1>SITEMAP</h1>
                 <a href="{{ route('drawing') }}">Drawingコンテンツ</a>
                 <a href="#lecturepage">コンテンツ解説</a>
-                <a href="{{ route('impPlan') }}">講座ブログ紹介</a>
+                <a href="{{ route('illustLesson') }}">イラストレッスン</a>
                 <a href="{{ route('credit') }}">クレジット</a>
                 <a href="{{ route('impPlan') }}">Parrot運営募集</a>
             </div>

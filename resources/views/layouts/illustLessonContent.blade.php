@@ -19,40 +19,89 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <style>
-    body {
-        background-color: #000;
-        margin: 0;
-        padding: 0;
+.lessonToppage-title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.lessonContent-contentTitle {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.lessonContent-contentSize {
+    height: 250px;
+    width: 237px;
+}
+/* ドロップダウン */
+.lessonContent-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  .lessonContent-dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    min-width: 160px;
+    z-index: 1;
+  }
+  
+  .lessonContent-dropdown-menu .lessonContent-dropdown-item {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 12px 16px;
+  }
+  
+  .lessonContent-dropdown-menu .lessonContent-dropdown-item:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .lessonContent-dropdown:hover .lessonContent-dropdown-menu {
+    display: block;
+  }
+  
+  .lessonContent-dropdown-button {
+    background-color: rgb(162, 162, 162);
+    color: white;
+    width: 160px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
     }
-    a {
-        color: #fff;
-        text-decoration: none;
+  
+.lessonContent-dropdown-button:hover {
+    background-color: rgb(98, 98, 98);
+}
+/* アイコン色 */
+.lessonContent-pinterest-youtube-icon {
+    color: red;
+    width: 40px;
+    height: 40px;
+}
+.lessonContent-blog-icon {
+    color: rgb(17, 212, 127);
+    width: 40px;
+    height: 40px;
+}
+/* レスポンシブ */
+@media (max-width:478px) {
+    /* コンテンツサイズ */
+    .lessonContent-contentSize {
+        height: 250px;
+        width: 337px;
     }
-    ul {
-        list-style-type: none;
-    }
+}
 </style>
 <body>
-    <div class="header ">
-        <a href="{{ route('index') }}" class="header-title custom-link"><img src="/toppage_image/logo.png" alt="" class="header-logoImg"></a>
-        <div id="humMenu">
-            <input id="humCheck" type="checkbox">
-            <label id="humOpen" for="humCheck"><img src="/icons/btn03-25.png" alt="メニュー" width="40" height="40"></label>
-            <label id="humClose" for="humCheck"></label>
-            <nav>
-              <ul class="inner">
-                <li><a href="{{ route('index') }}">トップページ</a></li>
-                <li><a href="{{ route('drawing') }}">ドローイングコンテンツ</a></li>
-                <li><a href="#lecturepage">コンテンツ解説</a></li>
-                <li><a href="{{ route('illustLesson') }}">イラストレッスン</a></li>
-                <li><a href="{{ route('contact.contact') }}">お問い合わせ</a></li>
-                <li><a href="{{ route('impPlan') }}">Parrot運営募集</a></li>
-              </ul>
-            </nav>
-        </div>
-    </div>
     @yield('content')
 </body>
-<script>
-</script>
 </html>

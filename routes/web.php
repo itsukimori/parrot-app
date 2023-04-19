@@ -25,6 +25,8 @@ Route::get('/credit', fn() => view('credit.credit'))->name('credit');
 Route::get('/drawing', [DrawingContentController::class, 'drawing'])->name('drawing');
 // お問い合わせ
 Route::get('/contact', fn() => view('contact.contact'))->name('contact.contact');
+// イラストレッスンコンテンツ
+Route::get('/illustration-lesson', fn() => view('illustLesson'))->name('illustLesson');
 
 // 実装予定ルート
 Route::get('/sorry', fn() => view('imp-plan'))->name('impPlan');

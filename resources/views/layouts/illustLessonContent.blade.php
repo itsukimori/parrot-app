@@ -92,6 +92,62 @@
     width: 40px;
     height: 40px;
 }
+/* ハンバーガーメニュー */
+#lessonContent-humMenu {
+    padding: 12px;
+}
+
+#lessonContent-humCheck, #lessonContent-humClose { display:none; }
+#lessonContent-humOpen {
+    display: block;
+    width: 58px;
+    cursor: pointer;
+}
+#lessonContent-humOpen:hover {
+    opacity: 0.5;
+}
+#lessonContent-humOpen img { display: block; }
+#lessonContent-humClose, nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+#lessonContent-humClose {
+    z-index: 2;
+    width: 100%;
+    background: gray;
+    opacity: 0.8;
+    transition: 0.5s;
+}
+nav {
+    z-index: 3;
+    width: 330px;
+    background: white;
+    transition: 0.5s;
+    transform: translateX(100%);
+}
+#lessonContent-humCheck:checked ~ #lessonContent-humClose { display: block; }
+#lessonContent-humCheck:checked ~ nav {
+    transform: translateX(0);
+}
+nav ul{
+    overflow: hidden;
+    list-style: none;
+}
+.lessonContent-inner li{
+    padding: 15px 0;
+    margin: 10px 0;
+}
+.lessonContent-inner li:hover{
+    opacity: 0.5;
+}
+.lessonContent-inner li a{
+    font-size: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}
 /* レスポンシブ */
 @media (max-width:478px) {
     /* コンテンツサイズ */

@@ -2,6 +2,25 @@
 @section('title', 'Lesson')
 @section('content')
 <div class="conteiner">
+    <div>
+        <div id="lessonContent-humMenu">
+            <input id="lessonContent-humCheck" type="checkbox">
+            <label id="lessonContent-humOpen" for="lessonContent-humCheck"><img src="/icons/btn03-14.png" alt="メニュー" width="40" height="40"></label>
+            <label id="lessonContent-humClose" for="lessonContent-humCheck"></label>
+            <nav>
+            <ul class="lessonContent-inner">
+                <li><a href="{{ route('index') }}">トップページ</a></li>
+                <li><a href="{{ route('drawing') }}">ドローイングコンテンツ</a></li>
+                <li><a href="{{ route('index') }}#lecturepage">コンテンツ解説</a></li>
+                <li><a href="{{ route('illustLesson') }}">イラストレッスン</a></li>
+                <li><a href="{{ route('contact.contact') }}">お問い合わせ</a></li>
+                <li><a href="{{ route('impPlan') }}">Parrot運営募集</a></li>
+            </ul>
+            </nav>
+        </div>
+    </div>
+    
+    
     <h1 class="lessonToppage-title">さまざまなコンテンツで身につけよう</h1>
     <ul class="nav nav-tabs">
         <li class="nav-item">

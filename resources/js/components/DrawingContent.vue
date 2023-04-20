@@ -56,6 +56,9 @@
                 </div>    
             </div>
         </div>
+        <div v-if="countdown" style="margin-top: 100px;">
+            <h1>残り：{{ countdownValue }}秒</h1>
+        </div>
         <div v-if="finishContent" class="drawingContent-margin">
             <h1>終了しました。</h1>
             <div class="drawingContent-finishButton">
@@ -81,13 +84,15 @@ export default {
             stopButton: false,
             selectOption: true,
             showImage: false,
+            countdown: false,
+            countdownValue: 0,
             finishContent: false,
             optionBodyparts: '',
             optionBodypartsText: '選択してください',
             optionSheets: '',
             optionSheetsText: '選択してください',
             optionTime: '',
-            optionTimeText: '選択してください'
+            optionTimeText: '選択してください',
         }
     },
     methods: {
@@ -127,6 +132,7 @@ export default {
             
             //画像表示処理
             this.showImage = !this.showImage;
+            this.countdown = !this.countdown;
             this.imageSrc += imageRep[0]
             var i = 1;
             var roops = setInterval(()=>{
@@ -142,6 +148,22 @@ export default {
                     this.finishContent = !this.finishContent
                 }
             }, this.selectedTime);
+
+            // カウントダウン
+            this.countdownValue = this.selectedTime / 1000
+            var contdownRoops = setInterval(()=> {
+                this.countdownValue--
+                if (this.countdownValue == 0) {
+                    this.countdownValue = this.selectedTime / 1000
+                }
+
+                if(i >= this.selectedSheets){
+                    clearInterval(contdownRoops)
+                    this.countdownValue = null
+                    this.countdown = !this.countdown
+                }
+            }, 1000);
+            
         },
         redirectToIndex() {
             window.location.href = '/';

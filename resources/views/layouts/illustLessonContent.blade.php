@@ -171,7 +171,6 @@ nav ul{
   height: 100%;
   border: 0;
 }
-
 </style>
 <body>
     @yield('content')

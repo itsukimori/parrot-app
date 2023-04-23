@@ -81,6 +81,10 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        {{-- pinterest --}}
+                        <div class="pinterest-wrapper">
+                            <a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="" data-pin-scale-height="" data-pin-scale-width="" href="https://www.pinterest.jp/parrotdrawingapp/headface/"></a>
+                        </div>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="pixiv0">
@@ -90,6 +94,7 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        <p>※記事募集中</p>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="blog0">
@@ -101,6 +106,7 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        <p>※記事募集中</p>
                     </div>
                 </div>
             </div>
@@ -147,6 +153,10 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        {{-- pinterest --}}
+                        <div class="pinterest-wrapper">
+                            <a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="" data-pin-scale-height="" data-pin-scale-width="" href="https://www.pinterest.jp/parrotdrawingapp/body/"></a>
+                        </div>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="pixiv1">
@@ -156,6 +166,7 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        <p>※記事募集中</p>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="blog1">
@@ -167,6 +178,7 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        <p>※記事募集中</p>
                     </div>
                 </div>
             </div>
@@ -193,6 +205,22 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        {{-- Youtube --}}
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/bDBgK4Fl3Go" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/5Ij8H3GlG9s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/BHQPCDlsAoQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/WDOO72XA0uQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/xxuJTCrvhh0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/mEt991LKGuQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZlOgFExfpmA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dpJbttYmSK8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-jqP9CnxY1k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/z5pKUrxi2mA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/D26F1gTgfvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/yQe710ocYVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/eabPsiWaimE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/PYuNu8WAySI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/kIH3y89cF9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="pinterest2">
@@ -204,6 +232,10 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        {{-- pinterest --}}
+                        <div class="pinterest-wrapper">
+                            <a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="" data-pin-scale-height="" data-pin-scale-width="" href="https://www.pinterest.jp/parrotdrawingapp/handarm/"></a>
+                        </div>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="pixiv2">
@@ -213,6 +245,7 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        <p>※記事募集中</p>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="blog2">
@@ -224,6 +257,7 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        <p>※記事募集中</p>
                     </div>
                 </div>
             </div>
@@ -250,6 +284,18 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        {{-- Youtube --}}
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/t3v5YLkOmtQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/bk1EVbayIZY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/a-qKPzvK-iI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/LchKOQnkCLI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/L-aBt-sMD5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tmjfpKnh5mY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/qbzPUIXpKik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/-V2ZvDrOSAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/dWlSbKv5-20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/nsWTLqNBzSI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ICf5iXU5HBM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="lessonContent-contentSize"></iframe>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="pinterest3">
@@ -261,6 +307,10 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        {{-- pinterest --}}
+                        <div class="pinterest-wrapper">
+                            <a data-pin-do="embedBoard" data-pin-lang="ja" data-pin-board-width="" data-pin-scale-height="" data-pin-scale-width="" href="https://www.pinterest.jp/parrotdrawingapp/footleg/"></a>
+                        </div>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="pixiv3">
@@ -270,6 +320,7 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        <p>※記事募集中</p>
                     </div>
                 </div>
                 <h2 class="lessonContent-contentTitle" id="blog3">
@@ -281,12 +332,14 @@
                 <div class="row">
                     <div class="col-12 lessonContent-contentMargin text-center">
                         {{-- <iframe>にlessonContent-contentSizeクラスを定義せよ --}}
+                        <p>※記事募集中</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script async defer src="//assets.pinterest.com/js/pinit.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
       const dropdownItems = document.querySelectorAll('a.lessonContent-dropdown-item');

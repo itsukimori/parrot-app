@@ -17437,9 +17437,7 @@ __webpack_require__.r(__webpack_exports__);
       imageSrc: '',
       stopButton: false,
       selectOption: true,
-      showImage: false,
-      countdown: false,
-      countdownValue: 0,
+      showImage: false
       finishContent: false,
       optionBodyparts: '',
       optionBodypartsText: '選択してください',
@@ -17490,8 +17488,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(imageRep);
 
       //画像表示処理
-      this.showImage = !this.showImage;
-      this.countdown = !this.countdown;
+      this.showImage = !this.showImage
       this.imageSrc += imageRep[0];
       var i = 1;
       var roops = setInterval(function () {
@@ -17507,19 +17504,6 @@ __webpack_require__.r(__webpack_exports__);
         }
       }, this.selectedTime);
 
-      // カウントダウン
-      this.countdownValue = this.selectedTime / 1000;
-      var contdownRoops = setInterval(function () {
-        _this.countdownValue--;
-        if (_this.countdownValue == 0) {
-          _this.countdownValue = _this.selectedTime / 1000;
-        }
-        if (i >= _this.selectedSheets) {
-          clearInterval(contdownRoops);
-          _this.countdownValue = null;
-          _this.countdown = !_this.countdown;
-        }
-      }, 1000);
     },
     redirectToIndex: function redirectToIndex() {
       window.location.href = '/';
@@ -17686,16 +17670,7 @@ var _hoisted_37 = {
 var _hoisted_38 = ["src"];
 var _hoisted_39 = {
   key: 2,
-  style: {
-    "margin-top": "100px"
-  }
-};
-var _hoisted_40 = {
-  key: 3,
-  "class": "drawingContent-margin"
-};
-var _hoisted_41 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "終了しました。", -1 /* HOISTED */);
-var _hoisted_42 = {
+<
   "class": "drawingContent-finishButton"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -17739,7 +17714,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     src: $data.imageSrc,
     alt: "",
     "class": "drawingContent-image"
-  }, null, 8 /* PROPS */, _hoisted_38)])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.countdown ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_39, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "残り：" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.countdownValue) + "秒", 1 /* TEXT */)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.finishContent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_40, [_hoisted_41, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_42, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+<<<> main
     onClick: _cache[7] || (_cache[7] = function () {
       return $options.redirectToDrawing && $options.redirectToDrawing.apply($options, arguments);
     }),

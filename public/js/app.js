@@ -17437,7 +17437,7 @@ __webpack_require__.r(__webpack_exports__);
       imageSrc: '',
       stopButton: false,
       selectOption: true,
-      showImage: false,
+      showImage: false
       finishContent: false,
       optionBodyparts: '',
       optionBodypartsText: '選択してください',
@@ -17488,7 +17488,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(imageRep);
 
       //画像表示処理
-      this.showImage = !this.showImage;
+      this.showImage = !this.showImage
       this.imageSrc += imageRep[0];
       var i = 1;
       var roops = setInterval(function () {
@@ -17503,6 +17503,7 @@ __webpack_require__.r(__webpack_exports__);
           _this.finishContent = !_this.finishContent;
         }
       }, this.selectedTime);
+
     },
     redirectToIndex: function redirectToIndex() {
       window.location.href = '/';
@@ -17669,10 +17670,7 @@ var _hoisted_37 = {
 var _hoisted_38 = ["src"];
 var _hoisted_39 = {
   key: 2,
-  "class": "drawingContent-margin"
-};
-var _hoisted_40 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "終了しました。", -1 /* HOISTED */);
-var _hoisted_41 = {
+<
   "class": "drawingContent-finishButton"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -17716,7 +17714,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     src: $data.imageSrc,
     alt: "",
     "class": "drawingContent-image"
-  }, null, 8 /* PROPS */, _hoisted_38)])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.finishContent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_39, [_hoisted_40, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_41, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+<<<> main
     onClick: _cache[7] || (_cache[7] = function () {
       return $options.redirectToDrawing && $options.redirectToDrawing.apply($options, arguments);
     }),

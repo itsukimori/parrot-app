@@ -31,7 +31,7 @@
                         <a href="#illustrationLesson">
                             <button class="btn btn-outline-light">Learn to Draw</button>
                         </a>
-                        <p class="">Youtubeやブログ<br>の情報を部位ごとに<br>まとめてあります。</p>
+                        <p class="">Youtubeやブログ<br>の情報を部位ごとに<br>まとめてあります</p>
                     </div>
                 </div>
             </div>

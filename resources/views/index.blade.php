@@ -15,7 +15,7 @@
                         <a href="{{ route('drawing') }}">
                             <button class="btn btn-outline-light">Drawing start</button>
                         </a>
-                        <p class="">やり方が分からない<br>人はDrawing lecture<br>見てね</p>
+                        <p class="">やり方が分からない<br>人はDrawing lecture<br>見て下さい</p>
                     </div>
                 </div>
                 <div class="toppage-heightLine-parent text-center col-md-4 col-sm-12">

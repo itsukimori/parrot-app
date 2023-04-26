@@ -167,7 +167,7 @@
                                     </div>
                                     <div class="illustrationLessonPage-icon-flex">
                                         <span class="material-symbols-outlined">pin</span>
-                                        <p>難易度<br>順に並べる</p>
+                                        <p>初心者<br>でも学べる</p>
                                     </div>
                                 </div>
                                 <p class="illustrationLessonPage-content-text">コンテンツを開始するには、ボタンをクリックしてください↓</p>

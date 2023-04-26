@@ -15,7 +15,7 @@
 }
 .header-logoImg {
     height: 70px;
-    width: 100%;
+    width: 200px;
     margin-left: 10px;
 }
 
@@ -772,6 +772,13 @@ nav li a{
     }
     .illustrationLessonPage-column1-margin {
         margin-top: 75px;
+    }
+}
+/* PCモニター１９２０対策 */
+@media (min-width: 1646px) {
+    /* 背景画像 */
+    .toppage-backImage {
+        margin-top: 100px;/*１９２０モニターだとヘッダーが被るのを回避*/
     }
 }
 /* |-------------------------------------| */

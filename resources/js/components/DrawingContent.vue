@@ -1,5 +1,20 @@
 <template>
+    <!-- 未入力時の表示 -->
+    <div v-if="optionUnfilled">
+        <!-- トースト Bootstrap-->
+        <div class="toast" id="myToast" style="z-index: 10000; position: absolute; top: 100px; right: 10px;">
+            <div class="toast-header">
+                <strong class="me-auto">全て選択して下さい</strong>
+                <small></small> <!--サブタイトル-->
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="閉じる"></button>
+            </div>
+            <div class="toast-body">
+                {{ optionUnfilledText }}
+            </div>
+        </div>
+    </div>
     <div class="container text-center">
+        <!-- セレクトオプション　選択後、非表示 -->
         <div class="drawingContent-margin" v-if="selectOption">
             <div class="row">
                 <div class="col-12 col-md-4 my-2">
@@ -45,8 +60,9 @@
                     </div>    
                 </div>
             </div>
-            <button v-on:click="startAction" type="button" class="btn btn-outline-dark drawingContent-startButton">START</button>
+            <button v-on:click="startAction" type="button" class="btn btn-outline-dark drawingContent-startButton" onclick="showToast()">START</button>
         </div>
+        <!-- 画像表示 　指定枚数表示後、非表示-->
         <div v-if="showImage">
             <div class="drawingContent-container">
                 <div class="drawingContent-border">
@@ -56,9 +72,11 @@
                 </div>    
             </div>
         </div>
+        <!-- カウンドダウン -->
         <div v-if="countdown" style="margin-top: 100px;">
             <h1>残り：{{ countdownValue }}秒</h1>
         </div>
+        <!-- 画像非表示後の表示 -->
         <div v-if="finishContent" class="drawingContent-margin">
             <h1>終了しました。</h1>
             <div class="drawingContent-finishButton">
@@ -87,83 +105,107 @@ export default {
             countdown: false,
             countdownValue: 0,
             finishContent: false,
-            optionBodyparts: '',
+            optionBodyparts: null,
             optionBodypartsText: '選択してください',
-            optionSheets: '',
+            optionSheets: null,
             optionSheetsText: '選択してください',
-            optionTime: '',
+            optionTime: null,
             optionTimeText: '選択してください',
+            optionUnfilled: false,
+            optionUnfilledText: '',
         }
     },
     methods: {
         startAction: function(){
-            this.selectOption = !this.selectOption;
-
-            if(this.selectedParts == 'hand'){ //hand
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "hand";
-                });
-            } else if(this.selectedParts == 'face'){ //face
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "face";
-                });
-            } else if(this.selectedParts == 'foot'){ //face
-                var imagePathObj =  this.imageData.filter(function(elem) {
-                    return elem.body_parts == "foot";
-                });
-            }
-            //パスのみを配列化
-            var imagePath = imagePathObj.map((path)=>{
-                return path.image_path
-            })
-            //配列をシャッフル
-            function arrayShuffle(array) {
-                for(let i = (array.length - 1); 0 < i; i--){
-                    let r = Math.floor(Math.random() * (i + 1));
-                    let tmp = array[i];
-                    array[i] = array[r];
-                    array[r] = tmp;
+            // 未入力時の処理
+            if(this.selectedParts == null || this.selectedSheets == null || this.selectedTime == null) {
+                let unfilledText = '';
+                if(this.selectedParts == null) {
+                    unfilledText += '部位 ';
                 }
-                return array;
-            }
-            var shuffleImagePath = arrayShuffle(imagePath)
-            var imageRep = shuffleImagePath.map(item => item.replace("/var/www/html/public", ""));
-            console.log(imageRep)
-            
-            //画像表示処理
-            this.showImage = !this.showImage;
-            this.countdown = !this.countdown;
-            this.imageSrc += imageRep[0]
-            var i = 1;
-            var roops = setInterval(()=>{
-                const image = imageRep[i]
-                this.imageSrc = ''
-                this.imageSrc += image
-                console.log(this.imageSrc)
-                i++
-
-                if(i >= this.selectedSheets){
-                    clearInterval(roops)
-                    this.showImage = !this.showImage
-                    this.finishContent = !this.finishContent
+                if(this.selectedSheets == null) {
+                    unfilledText += '枚数 ';
                 }
-            }, this.selectedTime);
-
-            // カウントダウン
-            this.countdownValue = this.selectedTime / 1000
-            var contdownRoops = setInterval(()=> {
-                this.countdownValue--
-                if (this.countdownValue == 0) {
-                    this.countdownValue = this.selectedTime / 1000
+                if(this.selectedTime == null) {
+                    unfilledText += '時間 ';
+                }
+                this.optionUnfilled = true;
+                this.optionUnfilledText = `以下のオプションが未選択です: ${unfilledText}`
+            } else {
+            // すべてのオプションが選択されている場合の処理
+                
+                if(this.optionUnfilled = true) {
+                    this.optionUnfilled = false
                 }
 
-                if(i >= this.selectedSheets){
-                    clearInterval(contdownRoops)
-                    this.countdownValue = null
-                    this.countdown = !this.countdown
+                this.selectOption = !this.selectOption;
+
+                if(this.selectedParts == 'hand'){ //hand
+                    var imagePathObj =  this.imageData.filter(function(elem) {
+                        return elem.body_parts == "hand";
+                    });
+                } else if(this.selectedParts == 'face'){ //face
+                    var imagePathObj =  this.imageData.filter(function(elem) {
+                        return elem.body_parts == "face";
+                    });
+                } else if(this.selectedParts == 'foot'){ //face
+                    var imagePathObj =  this.imageData.filter(function(elem) {
+                        return elem.body_parts == "foot";
+                    });
                 }
-            }, 1000);
-            
+                //パスのみを配列化
+                var imagePath = imagePathObj.map((path)=>{
+                    return path.image_path
+                })
+                //配列をシャッフル
+                function arrayShuffle(array) {
+                    for(let i = (array.length - 1); 0 < i; i--){
+                        let r = Math.floor(Math.random() * (i + 1));
+                        let tmp = array[i];
+                        array[i] = array[r];
+                        array[r] = tmp;
+                    }
+                    return array;
+                }
+                var shuffleImagePath = arrayShuffle(imagePath)
+                var imageRep = shuffleImagePath.map(item => item.replace("/var/www/html/public", ""));
+                console.log(imageRep)
+                
+                //画像表示処理
+                this.showImage = !this.showImage;
+                this.countdown = !this.countdown;
+                this.imageSrc += imageRep[0]
+                var i = 1;
+                var roops = setInterval(()=>{
+                    const image = imageRep[i]
+                    this.imageSrc = ''
+                    this.imageSrc += image
+                    console.log(this.imageSrc)
+                    i++
+
+                    if(i >= this.selectedSheets){
+                        clearInterval(roops)
+                        this.showImage = !this.showImage
+                        this.finishContent = !this.finishContent
+                    }
+                }, this.selectedTime);
+
+                // カウントダウン
+                this.countdownValue = this.selectedTime / 1000
+                var contdownRoops = setInterval(()=> {
+                    this.countdownValue--
+                    if (this.countdownValue == 0) {
+                        this.countdownValue = this.selectedTime / 1000
+                    }
+
+                    if(i >= this.selectedSheets){
+                        clearInterval(contdownRoops)
+                        this.countdownValue = null
+                        this.countdown = !this.countdown
+                    }
+                }, 1000);
+                return; 
+            }         
         },
         redirectToIndex() {
             window.location.href = '/';

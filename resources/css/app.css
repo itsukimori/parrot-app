@@ -497,7 +497,19 @@ nav li a{
     height: auto;
     object-fit: contain;
 }
-/* 未入力エラー表示 */
+/* 画像表示中スタイル */
+.drawingContent-contentStatus {
+    margin-top: 100px;
+    display: flex;
+}
+.drawingContent-countdown {
+    flex: 1;
+}
+.drawingContent-skipButton {
+    position: relative;
+    z-index: 10000;
+    flex: 1;
+}
 
 /*｜ ------------------------------------------｜ */
 /* |----------------クレジットページ------------------| */

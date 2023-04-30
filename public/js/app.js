@@ -17448,13 +17448,17 @@ __webpack_require__.r(__webpack_exports__);
       optionTime: null,
       optionTimeText: '選択してください',
       optionUnfilled: false,
-      optionUnfilledText: ''
+      optionUnfilledText: '',
+      skip: false,
+      aryValue: 0,
+      roops: null,
+      countdownRoops: null,
+      imagePathAry: []
     };
   },
   methods: {
     startAction: function startAction() {
-      var _this = this;
-      // 未入力時の処理
+      // 未入力確認の処理
       if (this.selectedParts == null || this.selectedSheets == null || this.selectedTime == null) {
         var unfilledText = '';
         if (this.selectedParts == null) {
@@ -17471,10 +17475,10 @@ __webpack_require__.r(__webpack_exports__);
       } else {
         //配列をシャッフル
         var arrayShuffle = function arrayShuffle(array) {
-          for (var _i = array.length - 1; 0 < _i; _i--) {
-            var r = Math.floor(Math.random() * (_i + 1));
-            var tmp = array[_i];
-            array[_i] = array[r];
+          for (var i = array.length - 1; 0 < i; i--) {
+            var r = Math.floor(Math.random() * (i + 1));
+            var tmp = array[i];
+            array[i] = array[r];
             array[r] = tmp;
           }
           return array;
@@ -17484,7 +17488,8 @@ __webpack_require__.r(__webpack_exports__);
         if (this.optionUnfilled = true) {
           this.optionUnfilled = false;
         }
-        this.selectOption = !this.selectOption;
+        this.selectOption = false;
+        // イメージパスの追加
         if (this.selectedParts == 'hand') {
           //hand
           var imagePathObj = this.imageData.filter(function (elem) {
@@ -17506,51 +17511,81 @@ __webpack_require__.r(__webpack_exports__);
           return path.image_path;
         });
         var shuffleImagePath = arrayShuffle(imagePath);
+        // 指定文字列リプレイス
         var imageRep = shuffleImagePath.map(function (item) {
           return item.replace("/var/www/html/public", "");
         });
-        console.log(imageRep);
-
-        //画像表示処理
-        this.showImage = !this.showImage;
-        this.countdown = !this.countdown;
-        this.imageSrc += imageRep[0];
-        var i = 1;
-        var roops = setInterval(function () {
-          var image = imageRep[i];
-          _this.imageSrc = '';
-          _this.imageSrc += image;
-          console.log(_this.imageSrc);
-          i++;
-          if (i >= _this.selectedSheets) {
-            clearInterval(roops);
-            _this.showImage = !_this.showImage;
-            _this.finishContent = !_this.finishContent;
-          }
-        }, this.selectedTime);
-
-        // カウントダウン
-        this.countdownValue = this.selectedTime / 1000;
-        var contdownRoops = setInterval(function () {
-          _this.countdownValue--;
-          if (_this.countdownValue == 0) {
-            _this.countdownValue = _this.selectedTime / 1000;
-          }
-          if (i >= _this.selectedSheets) {
-            clearInterval(contdownRoops);
-            _this.countdownValue = null;
-            _this.countdown = !_this.countdown;
-          }
-        }, 1000);
+        // パスの配列をdisplayImageに渡す
+        this.imagePathAry = imageRep;
+        this.displayImage(this.imagePathAry);
         return;
       }
     },
+    displayImage: function displayImage(imagePathAry) {
+      var _this = this;
+      this.showImage = true;
+      this.countdown = true;
+      this.skip = true;
+      this.imageSrc += imagePathAry[this.aryValue];
+      this.aryValue++;
+      this.roops = setInterval(function () {
+        _this.changeImage(imagePathAry);
+      }, this.selectedTime);
+      this.countDownTime();
+    },
+    changeImage: function changeImage(imagePathAry) {
+      var image = imagePathAry[this.aryValue];
+      this.imageSrc = '';
+      this.imageSrc += image;
+      this.aryValue++;
+      console.log(this.aryValue);
+
+      // 終了処理
+      if (this.aryValue >= this.selectedSheets) {
+        clearInterval(this.roops);
+        this.countdown = false;
+        this.showImage = false;
+        this.finishContent = true;
+      }
+    },
+    skipToNextImage: function skipToNextImage() {
+      var _this2 = this;
+      clearInterval(this.roops);
+      this.changeImage(this.imagePathAry);
+      this.countDownTime();
+      this.roops = setInterval(function () {
+        _this2.changeImage(_this2.imagePathAry);
+      }, this.selectedTime);
+    },
+    countDownTime: function countDownTime() {
+      var _this3 = this;
+      // Clear existing interval
+      if (this.countdownRoops) {
+        clearInterval(this.countdownRoops);
+      }
+      // カウントダウン
+      this.countdownValue = this.selectedTime / 1000;
+      this.countdownRoops = setInterval(function () {
+        _this3.countdownValue--;
+        if (_this3.countdownValue == 0) {
+          _this3.countdownValue = _this3.selectedTime / 1000;
+        }
+        if (_this3.aryValue >= _this3.selectedSheets) {
+          clearInterval(_this3.countdownRoops);
+          _this3.countdown = false;
+          _this3.countdownValue = null;
+        }
+      }, 1000);
+      return;
+    },
+    // リダイレクトボタン
     redirectToIndex: function redirectToIndex() {
       window.location.href = '/';
     },
     redirectToDrawing: function redirectToDrawing() {
       window.location.href = '/drawing';
     },
+    // 選択オプション動的表示テキスト
     onOptionBodyparts: function onOptionBodyparts(event) {
       switch (event.target.value) {
         case 'hand':
@@ -17577,8 +17612,7 @@ __webpack_require__.r(__webpack_exports__);
       this.optionTime = elem;
       this.optionTimeText = elem + '秒ごとに画像が切り替わります。';
     }
-  },
-  mounted: function mounted() {}
+  }
 });
 
 /***/ }),
@@ -17736,16 +17770,17 @@ var _hoisted_41 = {
 var _hoisted_42 = ["src"];
 var _hoisted_43 = {
   key: 2,
-  style: {
-    "margin-top": "100px"
-  }
+  "class": "drawingContent-contentStatus"
 };
 var _hoisted_44 = {
+  "class": "drawingContent-countdown"
+};
+var _hoisted_45 = {
   key: 3,
   "class": "drawingContent-margin"
 };
-var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "終了しました。", -1 /* HOISTED */);
-var _hoisted_46 = {
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "終了しました。", -1 /* HOISTED */);
+var _hoisted_47 = {
   "class": "drawingContent-finishButton"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -17790,13 +17825,18 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     src: $data.imageSrc,
     alt: "",
     "class": "drawingContent-image"
-  }, null, 8 /* PROPS */, _hoisted_42)])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" カウンドダウン "), $data.countdown ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "残り：" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.countdownValue) + "秒", 1 /* TEXT */)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 画像非表示後の表示 "), $data.finishContent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_44, [_hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 8 /* PROPS */, _hoisted_42)])])])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" カウンドダウン　スキップ "), $data.countdown ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_43, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 残り秒数表示 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_44, "残り：" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.countdownValue) + "秒", 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 画像スキップ処理 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[7] || (_cache[7] = function () {
+      return $options.skipToNextImage && $options.skipToNextImage.apply($options, arguments);
+    }),
+    "class": "btn btn-outline-dark drawingContent-skipButton"
+  }, "次の画像へ")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 画像非表示後の表示 "), $data.finishContent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_45, [_hoisted_46, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    onClick: _cache[8] || (_cache[8] = function () {
       return $options.redirectToDrawing && $options.redirectToDrawing.apply($options, arguments);
     }),
     "class": "btn btn-outline-dark"
   }, "もう一度ドローイング"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    onClick: _cache[8] || (_cache[8] = function () {
+    onClick: _cache[9] || (_cache[9] = function () {
       return $options.redirectToIndex && $options.redirectToIndex.apply($options, arguments);
     }),
     "class": "btn btn-outline-dark"

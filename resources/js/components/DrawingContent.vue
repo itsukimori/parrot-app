@@ -72,9 +72,12 @@
                 </div>    
             </div>
         </div>
-        <!-- カウンドダウン -->
-        <div v-if="countdown" style="margin-top: 100px;">
-            <h1>残り：{{ countdownValue }}秒</h1>
+        <!-- カウンドダウン　スキップ -->
+        <div v-if="countdown" class="drawingContent-contentStatus">
+            <!-- 残り秒数表示 -->
+            <h1 class="drawingContent-countdown">残り：{{ countdownValue }}秒</h1>
+            <!-- 画像スキップ処理 -->
+            <button @click="skipToNextImage" class="btn btn-outline-dark drawingContent-skipButton">次の画像へ</button>
         </div>
         <!-- 画像非表示後の表示 -->
         <div v-if="finishContent" class="drawingContent-margin">
@@ -113,11 +116,16 @@ export default {
             optionTimeText: '選択してください',
             optionUnfilled: false,
             optionUnfilledText: '',
+            skip: false,
+            aryValue: 0,
+            roops: null,
+            countdownRoops: null,
+            imagePathAry: [],
         }
     },
     methods: {
         startAction: function(){
-            // 未入力時の処理
+            // 未入力確認の処理
             if(this.selectedParts == null || this.selectedSheets == null || this.selectedTime == null) {
                 let unfilledText = '';
                 if(this.selectedParts == null) {
@@ -138,8 +146,8 @@ export default {
                     this.optionUnfilled = false
                 }
 
-                this.selectOption = !this.selectOption;
-
+                this.selectOption = false;
+                // イメージパスの追加
                 if(this.selectedParts == 'hand'){ //hand
                     var imagePathObj =  this.imageData.filter(function(elem) {
                         return elem.body_parts == "hand";
@@ -168,51 +176,78 @@ export default {
                     return array;
                 }
                 var shuffleImagePath = arrayShuffle(imagePath)
+                // 指定文字列リプレイス
                 var imageRep = shuffleImagePath.map(item => item.replace("/var/www/html/public", ""));
-                console.log(imageRep)
-                
-                //画像表示処理
-                this.showImage = !this.showImage;
-                this.countdown = !this.countdown;
-                this.imageSrc += imageRep[0]
-                var i = 1;
-                var roops = setInterval(()=>{
-                    const image = imageRep[i]
-                    this.imageSrc = ''
-                    this.imageSrc += image
-                    console.log(this.imageSrc)
-                    i++
-
-                    if(i >= this.selectedSheets){
-                        clearInterval(roops)
-                        this.showImage = !this.showImage
-                        this.finishContent = !this.finishContent
-                    }
-                }, this.selectedTime);
-
-                // カウントダウン
-                this.countdownValue = this.selectedTime / 1000
-                var contdownRoops = setInterval(()=> {
-                    this.countdownValue--
-                    if (this.countdownValue == 0) {
-                        this.countdownValue = this.selectedTime / 1000
-                    }
-
-                    if(i >= this.selectedSheets){
-                        clearInterval(contdownRoops)
-                        this.countdownValue = null
-                        this.countdown = !this.countdown
-                    }
-                }, 1000);
+                // パスの配列をdisplayImageに渡す
+                this.imagePathAry = imageRep;
+                this.displayImage(this.imagePathAry);
                 return; 
             }         
         },
+        displayImage: function(imagePathAry) {
+            this.showImage = true;
+            this.countdown = true;
+            this.skip = true;
+            this.imageSrc += imagePathAry[this.aryValue]
+            this.aryValue++;
+            this.roops = setInterval(()=>{
+                this.changeImage(imagePathAry);
+            }, this.selectedTime);
+            this.countDownTime();
+            },
+        changeImage: function(imagePathAry) {
+            const image = imagePathAry[this.aryValue]
+            this.imageSrc = ''
+            this.imageSrc += image
+            this.aryValue++
+
+            console.log(this.aryValue);
+
+            // 終了処理
+            if(this.aryValue >= this.selectedSheets){
+                clearInterval(this.roops)
+                this.countdown = false
+                this.showImage = false
+                this.finishContent = true
+            }
+        },
+        skipToNextImage: function() {
+            clearInterval(this.roops);
+            this.changeImage(this.imagePathAry);
+            this.countDownTime();
+            this.roops = setInterval(()=>{
+                this.changeImage(this.imagePathAry);
+            }, this.selectedTime);
+        },
+        countDownTime: function() {
+            // Clear existing interval
+            if (this.countdownRoops) {
+                clearInterval(this.countdownRoops);
+            }
+            // カウントダウン
+            this.countdownValue = this.selectedTime / 1000
+            this.countdownRoops = setInterval(() => {
+                this.countdownValue--;
+                if (this.countdownValue == 0) {
+                    this.countdownValue = this.selectedTime / 1000
+                }
+                if(this.aryValue >= this.selectedSheets){
+                    clearInterval(this.countdownRoops)
+                    this.countdown = false
+                    this.countdownValue = null
+                    
+                }
+            }, 1000);
+            return; 
+        },
+        // リダイレクトボタン
         redirectToIndex() {
             window.location.href = '/';
         },
         redirectToDrawing() {
             window.location.href = '/drawing';
         },
+        // 選択オプション動的表示テキスト
         onOptionBodyparts(event) {
             switch(event.target.value) {
                 case 'hand':
@@ -238,9 +273,7 @@ export default {
             var elem = event.target.value / 1000 + '(秒)';
             this.optionTime = elem;
             this.optionTimeText = elem + '秒ごとに画像が切り替わります。'
-        }
-    },
-    mounted(){
+        },
     },
 }
 </script>

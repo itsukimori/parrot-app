@@ -86,6 +86,17 @@
                 <button @click="redirectToDrawing" class="btn btn-outline-dark">もう一度ドローイング</button>
                 <button @click="redirectToIndex" class="btn btn-outline-dark">トップページへ戻る</button>
             </div>
+            <!-- 表示画像一覧 -->
+            <div>
+                <button @click="imageListDisplay">画像表示</button>
+                <div v-if="finishImagesList">
+                    <div v-for="(image, index) in finishImages" :key="index">
+                        <img :src="image" alt="image">
+                    </div>
+                    <button @click="saveImages">保存する</button>
+                </div>
+            </div>
+            
         </div>
     </div>
     
@@ -121,6 +132,8 @@ export default {
             roops: null,
             countdownRoops: null,
             imagePathAry: [],
+            finishImagesList: false,
+            finishImages: null,
         }
     },
     methods: {
@@ -176,11 +189,16 @@ export default {
                     return array;
                 }
                 var shuffleImagePath = arrayShuffle(imagePath)
+                var selectedSheetsValue = shuffleImagePath.slice(0, this.selectedSheets);
                 // 指定文字列リプレイス
-                var imageRep = shuffleImagePath.map(item => item.replace("/var/www/html/public", ""));
+                var imageRep = selectedSheetsValue.map(item => item.replace("/var/www/html/public", ""));
                 // パスの配列をdisplayImageに渡す
                 this.imagePathAry = imageRep;
                 this.displayImage(this.imagePathAry);
+
+                this.imagePathAry.pop(); // 配列の最後の要素を削除
+                this.finishImages = this.imagePathAry
+                console.log(this.finishImages)
                 return; 
             }         
         },
@@ -274,6 +292,26 @@ export default {
             this.optionTime = elem;
             this.optionTimeText = elem + '秒ごとに画像が切り替わります。'
         },
+        imageListDisplay() {
+            this.finishImagesList = true;
+        },
+        // 画像を保存
+        async saveImages() {
+            for (const image of this.finishImages) {
+                const response = await fetch(image);
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = image.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                URL.revokeObjectURL(url);
+            }
+        }
     },
 }
 </script>

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.drawing-content-layout')
 @section('title', 'Drawing')
 @section('content')
     <style>

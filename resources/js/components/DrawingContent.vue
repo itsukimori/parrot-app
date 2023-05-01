@@ -81,10 +81,29 @@
         </div>
         <!-- 画像非表示後の表示 -->
         <div v-if="finishContent" class="drawingContent-margin">
-            <h1>終了しました。</h1>
+            <h1>終 了</h1>
             <div class="drawingContent-finishButton">
                 <button @click="redirectToDrawing" class="btn btn-outline-dark">もう一度ドローイング</button>
                 <button @click="redirectToIndex" class="btn btn-outline-dark">トップページへ戻る</button>
+            </div>
+            <!-- 表示画像一覧 -->
+            <div class="container">
+                <button @click="imageListDisplay" type="button" class="btn btn-link">画像表示</button>
+                <div v-if="finishImagesList">
+                    <button @click="saveImages" class="btn btn-primary drawingContent-downloardBTN" type="submit">
+                        <!-- アイコン -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                        </svg>
+                        DOWNLOAD
+                    </button>
+                    <div class="row">
+                        <div v-for="(image, index) in finishImages" :key="index" class="col-md-4">
+                            <img :src="image" class="img-fluid" alt="image">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -121,6 +140,8 @@ export default {
             roops: null,
             countdownRoops: null,
             imagePathAry: [],
+            finishImagesList: false,
+            finishImages: null,
         }
     },
     methods: {
@@ -176,11 +197,16 @@ export default {
                     return array;
                 }
                 var shuffleImagePath = arrayShuffle(imagePath)
+                var selectedSheetsValue = shuffleImagePath.slice(0, this.selectedSheets);
                 // 指定文字列リプレイス
-                var imageRep = shuffleImagePath.map(item => item.replace("/var/www/html/public", ""));
+                var imageRep = selectedSheetsValue.map(item => item.replace("/var/www/html/public", ""));
                 // パスの配列をdisplayImageに渡す
                 this.imagePathAry = imageRep;
                 this.displayImage(this.imagePathAry);
+
+                this.imagePathAry.pop(); // 配列の最後の要素を削除
+                this.finishImages = this.imagePathAry
+                console.log(this.finishImages)
                 return; 
             }         
         },
@@ -274,6 +300,26 @@ export default {
             this.optionTime = elem;
             this.optionTimeText = elem + '秒ごとに画像が切り替わります。'
         },
+        imageListDisplay() {
+            this.finishImagesList = true;
+        },
+        // 画像を保存
+        async saveImages() {
+            for (const image of this.finishImages) {
+                const response = await fetch(image);
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = image.split('/').pop();
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                URL.revokeObjectURL(url);
+            }
+        }
     },
 }
 </script>

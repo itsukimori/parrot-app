@@ -507,10 +507,12 @@ nav li a{
 }
 .drawingContent-skipButton {
     position: relative;
-    z-index: 10000;
     flex: 1;
 }
-
+/* ダウンロードボタン */
+.drawingContent-downloardBTN {
+    margin-bottom: 10px;
+}
 /*｜ ------------------------------------------｜ */
 /* |----------------クレジットページ------------------| */
 .credit-container {

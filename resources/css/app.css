@@ -507,7 +507,6 @@ nav li a{
 }
 .drawingContent-skipButton {
     position: relative;
-    z-index: 10000;
     flex: 1;
 }
 /* ダウンロードボタン */

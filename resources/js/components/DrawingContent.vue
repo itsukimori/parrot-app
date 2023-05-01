@@ -81,7 +81,7 @@
         </div>
         <!-- 画像非表示後の表示 -->
         <div v-if="finishContent" class="drawingContent-margin">
-            <h1>終了しました。</h1>
+            <h1>終 了</h1>
             <div class="drawingContent-finishButton">
                 <button @click="redirectToDrawing" class="btn btn-outline-dark">もう一度ドローイング</button>
                 <button @click="redirectToIndex" class="btn btn-outline-dark">トップページへ戻る</button>

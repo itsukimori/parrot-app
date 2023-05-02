@@ -454,6 +454,7 @@ nav li a{
 }
 .drawingContent-startButton {
     margin-top: 10px;
+    z-index: 10000;
 }
 .drawingContent-finishButton {
     margin-top: 20px;
@@ -487,9 +488,14 @@ nav li a{
     -o-object-fit: contain;
        object-fit: contain;
 }
+/* 進捗グラフ */
+.drawing-content-progress {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 /* 画像表示中スタイル */
 .drawingContent-contentStatus {
-    margin-top: 80px;
+    margin-top: 60px;
     display: flex;
 }
 .drawingContent-countdown {
@@ -502,6 +508,14 @@ nav li a{
 /* ダウンロードボタン */
 .drawingContent-downloardBTN {
     margin-bottom: 10px;
+}
+@media (max-width: 767px) {
+    .drawingContent-startButton {
+        position: fixed;
+        top: 0;
+        right: 0;
+        margin-right: 5px;
+    }
 }
 /*｜ ------------------------------------------｜ */
 /* |----------------クレジットページ------------------| */

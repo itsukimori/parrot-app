@@ -499,7 +499,7 @@ nav li a{
 }
 /* 画像表示中スタイル */
 .drawingContent-contentStatus {
-    margin-top: 100px;
+    margin-top: 80px;
     display: flex;
 }
 .drawingContent-countdown {

@@ -50,11 +50,13 @@
                             <h5 class="card-title">時間: {{ optionTime }}</h5>
                             <p class="card-text">{{ optionTimeText }}</p>
                             <select v-model="selectedTime" name="" id="" class="form-select w-100" @change="onOptionTime">
-                                <option value="5000">5</option>
+                                <!-- <option value="5000">5</option> -->
                                 <option value="30000">30</option>
                                 <option value="60000">60</option>
                                 <option value="90000">90</option>
                                 <option value="120000">120</option>
+                                <option value="180000">180</option>
+                                <option value="300000">300</option>
                             </select>
                         </div>
                     </div>    
@@ -78,6 +80,12 @@
             <h1 class="drawingContent-countdown">残り：{{ countdownValue }}秒</h1>
             <!-- 画像スキップ処理 -->
             <button @click="skipToNextImage" class="btn btn-outline-dark drawingContent-skipButton">次の画像へ</button>
+        </div>
+        <!-- 進捗タイム -->
+        <div v-if="displayProgress">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :aria-valuenow="progressValue" aria-valuemin="0" aria-valuemax="100" :style="{ width: progressValue + '%' }"></div>
+            </div>
         </div>
         <!-- 画像非表示後の表示 -->
         <div v-if="finishContent" class="drawingContent-margin">
@@ -142,6 +150,9 @@ export default {
             imagePathAry: [],
             finishImagesList: false,
             finishImages: null,
+            displayProgress: false,
+            progressValue: 100,
+            countdownValueFixed: null,
         }
     },
     methods: {
@@ -214,6 +225,7 @@ export default {
             this.showImage = true;
             this.countdown = true;
             this.skip = true;
+            this.displayProgress = true;
             this.imageSrc += imagePathAry[this.aryValue]
             this.aryValue++;
             this.roops = setInterval(()=>{
@@ -226,9 +238,6 @@ export default {
             this.imageSrc = ''
             this.imageSrc += image
             this.aryValue++
-
-            console.log(this.aryValue);
-
             // 終了処理
             if(this.aryValue >= this.selectedSheets){
                 clearInterval(this.roops)
@@ -241,6 +250,7 @@ export default {
             clearInterval(this.roops);
             this.changeImage(this.imagePathAry);
             this.countDownTime();
+            this.progressValue = 100
             this.roops = setInterval(()=>{
                 this.changeImage(this.imagePathAry);
             }, this.selectedTime);
@@ -252,16 +262,21 @@ export default {
             }
             // カウントダウン
             this.countdownValue = this.selectedTime / 1000
+            // 進捗バー
+            this.countdownValueFixed = this.selectedTime / 1000
             this.countdownRoops = setInterval(() => {
+                // 進捗バー
+                this.progressValue = (this.countdownValue / this.countdownValueFixed) * 100
                 this.countdownValue--;
-                if (this.countdownValue == 0) {
+                if (this.countdownValue <= 0) {
                     this.countdownValue = this.selectedTime / 1000
+                    this.progressValue = 0
                 }
                 if(this.aryValue >= this.selectedSheets){
                     clearInterval(this.countdownRoops)
                     this.countdown = false
                     this.countdownValue = null
-                    
+                    this.progressValue = 0
                 }
             }, 1000);
             return; 

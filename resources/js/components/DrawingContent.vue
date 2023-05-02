@@ -2,7 +2,7 @@
     <!-- 未入力時の表示 -->
     <div v-if="optionUnfilled">
         <!-- トースト Bootstrap-->
-        <div class="toast" id="myToast" style="z-index: 10000; position: absolute; top: 100px; right: 10px;">
+        <div class="toast" id="myToast" style="z-index: 10001; position: absolute; top: 100px; right: 10px;">
             <div class="toast-header">
                 <strong class="me-auto">全て選択して下さい</strong>
                 <small></small> <!--サブタイトル-->
@@ -79,17 +79,28 @@
             <!-- 残り秒数表示 -->
             <h1 class="drawingContent-countdown">残り：{{ countdownValue }}秒</h1>
             <!-- 画像スキップ処理 -->
-            <button @click="skipToNextImage" class="btn btn-outline-dark drawingContent-skipButton">次の画像へ</button>
+            <button @click="skipToNextImage" class="btn btn-outline-dark drawingContent-skipButton">
+                次の画像へ
+                <!-- アイコン -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"/>
+                </svg>
+            </button>
         </div>
-        <!-- 進捗タイム -->
+        <!-- 進捗 -->
         <div v-if="displayProgress">
+            <!-- 時間 -->
+            <div class="progress drawing-content-progress">
+                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :aria-valuenow="progressTimeValue" aria-valuemin="0" aria-valuemax="100" :style="{ width: progressTimeValue + '%' }"></div>
+            </div>
+            <!-- 枚数 -->
             <div class="progress">
-                <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" :aria-valuenow="progressValue" aria-valuemin="0" aria-valuemax="100" :style="{ width: progressValue + '%' }"></div>
+                <div class="progress-bar" role="progressbar" :style="{ width: progressTaskValue + '%' }" :aria-valuenow="progressTaskValue" aria-valuemin="0" aria-valuemax="100">{{ progressTask }}/{{ selectedSheets - 1 }}</div>
             </div>
         </div>
         <!-- 画像非表示後の表示 -->
         <div v-if="finishContent" class="drawingContent-margin">
-            <h1>終 了</h1>
+            <h1>終了</h1>
             <div class="drawingContent-finishButton">
                 <button @click="redirectToDrawing" class="btn btn-outline-dark">もう一度ドローイング</button>
                 <button @click="redirectToIndex" class="btn btn-outline-dark">トップページへ戻る</button>
@@ -151,8 +162,10 @@ export default {
             finishImagesList: false,
             finishImages: null,
             displayProgress: false,
-            progressValue: 100,
-            countdownValueFixed: null,
+            progressTimeValue: 100,
+            countdownTimeValueFixed: null,
+            progressTaskValue: 1,
+            progressTask: 1,
         }
     },
     methods: {
@@ -219,7 +232,7 @@ export default {
                 this.finishImages = this.imagePathAry
                 console.log(this.finishImages)
                 return; 
-            }         
+            }     
         },
         displayImage: function(imagePathAry) {
             this.showImage = true;
@@ -238,11 +251,14 @@ export default {
             this.imageSrc = ''
             this.imageSrc += image
             this.aryValue++
+
+            this.progressTaskValue =  (this.progressTask / (this.selectedSheets - 2)) * 100
             // 終了処理
             if(this.aryValue >= this.selectedSheets){
                 clearInterval(this.roops)
                 this.countdown = false
                 this.showImage = false
+                this.displayProgress = false
                 this.finishContent = true
             }
         },
@@ -250,7 +266,8 @@ export default {
             clearInterval(this.roops);
             this.changeImage(this.imagePathAry);
             this.countDownTime();
-            this.progressValue = 100
+            this.progressTimeValue = 100
+            this.progressTask++
             this.roops = setInterval(()=>{
                 this.changeImage(this.imagePathAry);
             }, this.selectedTime);
@@ -263,14 +280,15 @@ export default {
             // カウントダウン
             this.countdownValue = this.selectedTime / 1000
             // 進捗バー
-            this.countdownValueFixed = this.selectedTime / 1000
+            this.countdownTimeValueFixed = this.selectedTime / 1000
             this.countdownRoops = setInterval(() => {
                 // 進捗バー
-                this.progressValue = (this.countdownValue / this.countdownValueFixed) * 100
+                this.progressTimeValue = (this.countdownValue / this.countdownTimeValueFixed) * 100
                 this.countdownValue--;
                 if (this.countdownValue <= 0) {
                     this.countdownValue = this.selectedTime / 1000
-                    this.progressValue = 0
+                    this.progressTimeValue = 0
+                    this.progressTask++
                 }
                 if(this.aryValue >= this.selectedSheets){
                     clearInterval(this.countdownRoops)

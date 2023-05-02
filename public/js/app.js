@@ -17464,8 +17464,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       finishImagesList: false,
       finishImages: null,
       displayProgress: false,
-      progressValue: 100,
-      countdownValueFixed: null
+      progressTimeValue: 100,
+      countdownTimeValueFixed: null,
+      progressTaskValue: 1,
+      progressTask: 1
     };
   },
   methods: {
@@ -17555,11 +17557,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.imageSrc = '';
       this.imageSrc += image;
       this.aryValue++;
+      this.progressTaskValue = this.progressTask / (this.selectedSheets - 2) * 100;
       // 終了処理
       if (this.aryValue >= this.selectedSheets) {
         clearInterval(this.roops);
         this.countdown = false;
         this.showImage = false;
+        this.displayProgress = false;
         this.finishContent = true;
       }
     },
@@ -17568,7 +17572,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       clearInterval(this.roops);
       this.changeImage(this.imagePathAry);
       this.countDownTime();
-      this.progressValue = 100;
+      this.progressTimeValue = 100;
+      this.progressTask++;
       this.roops = setInterval(function () {
         _this2.changeImage(_this2.imagePathAry);
       }, this.selectedTime);
@@ -17582,14 +17587,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       // カウントダウン
       this.countdownValue = this.selectedTime / 1000;
       // 進捗バー
-      this.countdownValueFixed = this.selectedTime / 1000;
+      this.countdownTimeValueFixed = this.selectedTime / 1000;
       this.countdownRoops = setInterval(function () {
         // 進捗バー
-        _this3.progressValue = _this3.countdownValue / _this3.countdownValueFixed * 100;
+        _this3.progressTimeValue = _this3.countdownValue / _this3.countdownTimeValueFixed * 100;
         _this3.countdownValue--;
         if (_this3.countdownValue <= 0) {
           _this3.countdownValue = _this3.selectedTime / 1000;
-          _this3.progressValue = 0;
+          _this3.progressTimeValue = 0;
+          _this3.progressTask++;
         }
         if (_this3.aryValue >= _this3.selectedSheets) {
           clearInterval(_this3.countdownRoops);
@@ -17735,7 +17741,7 @@ var _hoisted_2 = {
   "class": "toast",
   id: "myToast",
   style: {
-    "z-index": "10000",
+    "z-index": "10001",
     "position": "absolute",
     "top": "100px",
     "right": "10px"
@@ -17853,28 +17859,44 @@ var _hoisted_43 = {
 var _hoisted_44 = {
   "class": "drawingContent-countdown"
 };
-var _hoisted_45 = {
+var _hoisted_45 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" 次の画像へ ");
+var _hoisted_46 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "16",
+  height: "16",
+  fill: "currentColor",
+  "class": "bi bi-arrow-bar-right",
+  viewBox: "0 0 16 16"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  "fill-rule": "evenodd",
+  d: "M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8zm-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5z"
+})], -1 /* HOISTED */);
+var _hoisted_47 = {
   key: 3
 };
-var _hoisted_46 = {
+var _hoisted_48 = {
+  "class": "progress drawing-content-progress"
+};
+var _hoisted_49 = ["aria-valuenow"];
+var _hoisted_50 = {
   "class": "progress"
 };
-var _hoisted_47 = ["aria-valuenow"];
-var _hoisted_48 = {
+var _hoisted_51 = ["aria-valuenow"];
+var _hoisted_52 = {
   key: 4,
   "class": "drawingContent-margin"
 };
-var _hoisted_49 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "終 了", -1 /* HOISTED */);
-var _hoisted_50 = {
+var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", null, "終了", -1 /* HOISTED */);
+var _hoisted_54 = {
   "class": "drawingContent-finishButton"
 };
-var _hoisted_51 = {
+var _hoisted_55 = {
   "class": "container"
 };
-var _hoisted_52 = {
+var _hoisted_56 = {
   key: 0
 };
-var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+var _hoisted_57 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   width: "16",
   height: "16",
@@ -17886,11 +17908,11 @@ var _hoisted_53 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
   d: "M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"
 })], -1 /* HOISTED */);
-var _hoisted_54 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" DOWNLOAD ");
-var _hoisted_55 = {
+var _hoisted_58 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" DOWNLOAD ");
+var _hoisted_59 = {
   "class": "row"
 };
-var _hoisted_56 = ["src"];
+var _hoisted_60 = ["src"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 未入力時の表示 "), $data.optionUnfilled ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" トースト Bootstrap"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.optionUnfilledText), 1 /* TEXT */)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" セレクトオプション　選択後、非表示 "), $data.selectOption ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_11, "部位: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.optionBodyparts), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.optionBodypartsText), 1 /* TEXT */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -17938,16 +17960,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.skipToNextImage && $options.skipToNextImage.apply($options, arguments);
     }),
     "class": "btn btn-outline-dark drawingContent-skipButton"
-  }, "次の画像へ")])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 進捗タイム "), $data.displayProgress ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_45, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_46, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, [_hoisted_45, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" アイコン "), _hoisted_46])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 進捗 "), $data.displayProgress ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_47, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 時間 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_48, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "progress-bar progress-bar-striped progress-bar-animated",
     role: "progressbar",
-    "aria-valuenow": $data.progressValue,
+    "aria-valuenow": $data.progressTimeValue,
     "aria-valuemin": "0",
     "aria-valuemax": "100",
     style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
-      width: $data.progressValue + '%'
+      width: $data.progressTimeValue + '%'
     })
-  }, null, 12 /* STYLE, PROPS */, _hoisted_47)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 画像非表示後の表示 "), $data.finishContent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_48, [_hoisted_49, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, null, 12 /* STYLE, PROPS */, _hoisted_49)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 枚数 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_50, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+    "class": "progress-bar",
+    role: "progressbar",
+    style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)({
+      width: $data.progressTaskValue + '%'
+    }),
+    "aria-valuenow": $data.progressTaskValue,
+    "aria-valuemin": "0",
+    "aria-valuemax": "100"
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.progressTask) + "/" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.selectedSheets - 1), 13 /* TEXT, STYLE, PROPS */, _hoisted_51)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 画像非表示後の表示 "), $data.finishContent ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [_hoisted_53, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_54, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[8] || (_cache[8] = function () {
       return $options.redirectToDrawing && $options.redirectToDrawing.apply($options, arguments);
     }),
@@ -17957,19 +17988,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $options.redirectToIndex && $options.redirectToIndex.apply($options, arguments);
     }),
     "class": "btn btn-outline-dark"
-  }, "トップページへ戻る")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 表示画像一覧 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_51, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, "トップページへ戻る")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" 表示画像一覧 "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[10] || (_cache[10] = function () {
       return $options.imageListDisplay && $options.imageListDisplay.apply($options, arguments);
     }),
     type: "button",
     "class": "btn btn-link"
-  }, "画像表示"), $data.finishImagesList ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_52, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, "画像表示"), $data.finishImagesList ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_56, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     onClick: _cache[11] || (_cache[11] = function () {
       return $options.saveImages && $options.saveImages.apply($options, arguments);
     }),
     "class": "btn btn-primary drawingContent-downloardBTN",
     type: "submit"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" アイコン "), _hoisted_53, _hoisted_54]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_55, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.finishImages, function (image, index) {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" アイコン "), _hoisted_57, _hoisted_58]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_59, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.finishImages, function (image, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: index,
       "class": "col-md-4"
@@ -17977,7 +18008,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       src: image,
       "class": "img-fluid",
       alt: "image"
-    }, null, 8 /* PROPS */, _hoisted_56)]);
+    }, null, 8 /* PROPS */, _hoisted_60)]);
   }), 128 /* KEYED_FRAGMENT */))])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])], 64 /* STABLE_FRAGMENT */);
 }
 

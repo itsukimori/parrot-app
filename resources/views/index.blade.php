@@ -48,56 +48,53 @@
         <p class="lecturepage-sub-title">Drawing Lecture</p>
         <h1 class="lecturepage-title">ドローイングコンテンツの使用説明</h1>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 lecturepage-container lecturepage-content">
-                    <img src="/toppage_image/undraw_making_art_re_ee8w.svg" alt="" class="lecturepage-img">
+            {{-- コンテンツ説明カルーセル --}}
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="col-md-6 lecturepage-container lecturepage-content">
-                    <div id="carouselExampleIndicators" class="carousel slide lecturepage-carousel" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <div class="">
-                                <h4 id="" class="text-center lecturepage-carousel-title">- STEP 1 - <br>画材の用意</h4>
-                                <p class="lecturepage-carousel-text">ドローイングコンテンツを利用するには、アナログでもデジタルでも画材が必要です。アナログの場合は、描きやすいもの（鉛筆、色鉛筆、ペンなど）を選びましょう。デジタルの場合は、自分が使いやすいペンタブレットや液晶タブレット、ペン、ペイントソフトウェアを選ぶことが大切です。</p>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <div>
-                                <h4 id="scrollspyHeading2" class="text-center lecturepage-carousel-title">- STEP 2 - <br>Drawingコンテンツにアクセスする</h4>
-                                <p class="lecturepage-carousel-text">「Drawing Start」ボタンまたは下にある「ドローイングコンテンツ」ボタンを押して、コンテンツにアクセスしましょう。</p>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <div>
-                                <h4 id="scrollspyHeading3" class="text-center lecturepage-carousel-title">- STEP 3 - <br>各種設定を選ぶ</h4>
-                                <p class="lecturepage-carousel-text">当サイトのドローイングコンテンツでは、部位、枚数、時間を選択できます。自分に合った設定を選んで、画力向上を目指しましょう。初めての方は、難易度の低い設定を選ぶことをおすすめします。</p>
-                            </div>
-                          </div>
-                          <div class="carousel-item">
-                            <div>
-                                <h4 id="scrollspyHeading4" class="text-center lecturepage-carousel-title">- STEP 4 - <br>記録を残す</h4>
-                                <p class="lecturepage-carousel-text">練習で描いた作品を記録として残すことをおすすめします。これによって、自分の努力が可視化され、モチベーションにも繋がります。継続しなければ成長は望めませんので、ぜひ継続的な取り組みを心掛けましょう。</p>
-                            </div>
-                          </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
-                      </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/images/tutorial1.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/tutorial2.jpg" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/tutorial3.jpg" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+        </div>
+        <div class="container">
+            <img src="/images/image-processing.png" alt="" class="lecturepage-imagesDisplay-icon">
+            <h2>Parrotは多様な部位の画像を提供できます。<span class="count-under-line">現在は合計で{{ $imagesCount }}枚</span>の画像を提供しています。あなたの画力向上に役立てることができます。画像の一覧をご覧になりたい方は、以下を参照してください</h2>
+            <div class="row text-center lecturepage-alert-column">
+                <div class="alert alert-light col-md-4 " role="alert" class="">
+                    <img src="/images/head.png" alt="" style="height:34px; width:34px;">
+                    の画像は<a href="{{ route('displayFace') }}" class="alert-link">こちら</a>をクリックしてください
+                </div>
+                <div class="alert alert-light col-md-4 " role="alert" class="">
+                    <img src="/images/hello.png" alt="" style="height:34px; width:34px;">
+                    の画像は<a href="{{ route('displayHand') }}" class="alert-link">こちら</a>をクリックしてください
+                </div>
+                <div class="alert alert-light col-md-4 " role="alert" class="">
+                    <img src="/images/footicon.png" alt="" style="height:34px; width:34px;">
+                    の画像は<a href="{{ route('displayFoot') }}" class="alert-link">こちら</a>をクリックしてください
                 </div>
             </div>
         </div>
+        {{-- 画像スライダー --}}
         <div class="image-slider">
             <div class="image-slider__wrap">
                 <ul class="image-slider__list image-slider__list--left">
@@ -134,6 +131,7 @@
                 </ul>
             </div>
         </div>
+        
     </div>
     <div class="illustrationLessonPage-background" id="illustrationLesson">
         <div class="illustrationLessonPage-padding">

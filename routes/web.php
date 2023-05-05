@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DisplayImagesController;
 use App\Http\Controllers\DrawingContentController;
 
 /*
@@ -27,6 +28,10 @@ Route::get('/drawing', [DrawingContentController::class, 'drawing'])->name('draw
 Route::get('/contact', fn() => view('contact.contact'))->name('contact.contact');
 // イラストレッスンコンテンツ
 Route::get('/illustration-lesson', fn() => view('illustLesson'))->name('illustLesson');
+// 画像一覧ページ
+Route::get('/face', [DisplayImagesController::class, 'face'])->name('displayFace');
+Route::get('/hand', [DisplayImagesController::class, 'hand'])->name('displayHand');
+Route::get('/foot', [DisplayImagesController::class, 'foot'])->name('displayFoot');
 
 // 実装予定ルート
 Route::get('/sorry', fn() => view('imp-plan'))->name('impPlan');

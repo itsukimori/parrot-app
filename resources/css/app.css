@@ -222,7 +222,7 @@ nav li a{
 .lecturepage-background {
     background-color: #fff;
     margin-top: 125px;
-    height: 1700px;
+    height: 1200px;
 }
 .lecturepage-sub-title {
     font-size: 15px;
@@ -313,7 +313,7 @@ nav li a{
 }
 /* 画像表示ページ */
 .lecturepage-imagesDisplay-icon {
-    margin-top: 50px;
+    margin-top: 30px;
     margin-bottom: 30px;
     height: 50px;
     width: 50px;
@@ -646,7 +646,7 @@ nav li a{
     }
     /* Drawing-content lecturepage */
     .lecturepage-background {
-        height: 1600px;
+        height: 1290px;
     }
     .lecturepage-sub-title {
         padding-top: 50px;
@@ -738,7 +738,7 @@ nav li a{
     }
     /* Drawing-content lecturepage */
     .lecturepage-background {
-        height: 1600px;
+        height: 1200px;
     }
     .lecturepage-sub-title {
         padding-top: 50px;
@@ -766,12 +766,6 @@ nav li a{
     }
     .footer-logo {
         max-width: 60%;
-    }
-}
-/* 420以下 */
-@media (max-width: 420px) {
-    .lecturepage-background {
-        height: 1600px;
     }
 }
 /* タブレット向け */
@@ -826,7 +820,7 @@ nav li a{
 }
 @media (min-width: 1200px) {
     .lecturepage-background {
-        height: 1900px;
+        height: 1200px;
     }
 }
 /* PCモニター１９２０対策 */

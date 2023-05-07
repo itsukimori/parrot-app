@@ -46,36 +46,7 @@
     </div>
     <div class="lecturepage-background" id="lecturepage">
         <p class="lecturepage-sub-title">Drawing Lecture</p>
-        <h1 class="lecturepage-title">ドローイングコンテンツの使用説明</h1>
-        <div class="container">
-            {{-- コンテンツ説明カルーセル --}}
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="/images/tutorial1.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="/images/tutorial2.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="/images/tutorial3.jpg" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>
-        </div>
+        <h1 class="lecturepage-title">ドローイングコンテンツ</h1>
         <div class="container">
             <img src="/images/image-processing.png" alt="" class="lecturepage-imagesDisplay-icon">
             <h2>Parrotは多様な部位の画像を提供できます。<span class="count-under-line">現在は合計で{{ $imagesCount }}枚</span>の画像を提供しています。あなたの画力向上に役立てることができます。画像の一覧をご覧になりたい方は、以下を参照してください</h2>

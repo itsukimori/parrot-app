@@ -105,20 +105,11 @@
     <div class="drawingContent-menu">
         <div id="drawingContent-humMenu">
             <input id="drawingContent-humCheck" type="checkbox">
-            <label id="drawingContent-humOpen" for="drawingContent-humCheck">
-                <img src="/icons/btn03-14.png" alt="メニュー" width="40" height="40">
+            <label id="drawingContent-humOpen">
+                <a href="{{ route('index') }}">
+                    <img src="/icons/chevron.png" alt="メニュー" width="40" height="40">
+                </a> 
             </label>
-            <label id="drawingContent-humClose" for="drawingContent-humCheck"></label>
-            <nav class="drawingContent-nav">
-                <ul class="inner">
-                    <li><a href="{{ route('index') }}">トップページ</a></li>
-                    <li><a href="{{ route('drawing') }}">ドローイングコンテンツ</a></li>
-                    <li><a href="#lecturepage">コンテンツ解説</a></li>
-                    <li><a href="{{ route('illustLesson') }}">イラストレッスン</a></li>
-                    <li><a href="{{ route('contact.contact') }}">お問い合わせ</a></li>
-                    <li><a href="{{ route('impPlan') }}">Parrot運営募集</a></li>
-                </ul>
-            </nav>
         </div>        
     </div>
     @yield('content')

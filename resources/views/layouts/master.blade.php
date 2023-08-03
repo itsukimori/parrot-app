@@ -20,46 +20,13 @@
     <link rel="icon" href="/favicon/favicon.ico">
 </head>
 <style>
-    body {
-        background-color: #000;
-        margin: 0;
-        padding: 0;
-    }
+    /* aタグに対してスタイルを設定 */
     a {
-        color: #fff;
-        text-decoration: none;
-    }
-    ul {
-        list-style-type: none;
+      text-decoration: none; /* 下線を削除 */
+      color: inherit; /* 親要素の色を継承（デフォルトの色） */
     }
 </style>
 <body>
-    <div class="header ">
-        <a href="{{ route('index') }}" class="header-title custom-link"><img src="/toppage_image/logo.png" alt="" class="header-logoImg"></a>
-        <div id="humMenu">
-            <input id="humCheck" type="checkbox">
-            <label id="humOpen" for="humCheck"><img src="/icons/btn03-25.png" alt="メニュー" width="40" height="40"></label>
-            <label id="humClose" for="humCheck"></label>
-            <nav>
-              <ul class="inner">
-                <li><a href="{{ route('index') }}">トップページ</a></li>
-                <li><a href="{{ route('drawing') }}">ドローイングコンテンツ</a></li>
-                <li><a href="#lecturepage">コンテンツ解説</a></li>
-                <li><a href="{{ route('illustLesson') }}">イラストレッスン</a></li>
-                <li><a href="{{ route('contact.contact') }}">お問い合わせ</a></li>
-                <li><a href="{{ route('impPlan') }}">Parrot運営募集</a></li>
-              </ul>
-            </nav>
-        </div>
-    </div>
     @yield('content')
 </body>
-<script>
-    // Bootstrap トースト
-    function showToast() {
-        var toastEl = document.getElementById('myToast');
-        var toast = new bootstrap.Toast(toastEl);
-        toast.show();
-    }
-</script>
 </html>

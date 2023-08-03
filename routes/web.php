@@ -32,6 +32,3 @@ Route::get('/illustration-lesson', fn() => view('illustLesson'))->name('illustLe
 Route::get('/face', [DisplayImagesController::class, 'face'])->name('displayFace');
 Route::get('/hand', [DisplayImagesController::class, 'hand'])->name('displayHand');
 Route::get('/foot', [DisplayImagesController::class, 'foot'])->name('displayFoot');
-
-// 実装予定ルート
-Route::get('/sorry', fn() => view('imp-plan'))->name('impPlan');
